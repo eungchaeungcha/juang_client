@@ -1,8 +1,8 @@
 ---
 name: "\bFE 이슈 템플릿"
 about: 이슈 생성 시 사용하는 템플릿입니다
-title: "[FEATURE/FIX/CHORE] 제목을 입력하세요."
-labels: ''
+title: 제목을 입력하세요.
+labels: feature
 assignees: chasj0326
 
 ---
