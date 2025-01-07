@@ -13,7 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body>{children}</body>
+      <body className='h-svh bg-gray-light'>
+        <div className='inset-0 h-full overflow-auto m-auto bg-white sm:aspect-[9/16]'>{children}</div>
+      </body>
     </html>
   );
 }
