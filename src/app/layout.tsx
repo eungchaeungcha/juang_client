@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className={`h-svh bg-gray-light ${nanumGothic.className}`}>
-        <div className='inset-0 h-full overflow-auto m-auto bg-white sm:aspect-[9/16]'>{children}</div>
+        <main className='inset-0 h-full overflow-auto m-auto bg-white sm:aspect-[9/16] text-sm'>{children}</main>
       </body>
     </html>
   );
