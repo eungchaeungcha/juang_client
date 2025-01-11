@@ -9,6 +9,9 @@ export default {
   theme: {
     screens: { sm: '576px' },
     extend: {
+      fontFamily: {
+        nanum: ['var(--font-nanum)'],
+      },
       colors: {
         orange: {
           primary: '#ffa047',
