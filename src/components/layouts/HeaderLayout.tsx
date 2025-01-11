@@ -28,10 +28,12 @@ export default function HeaderLayout({
           />
         </div>
       )}
-      <header className="w-full py-4 flex-col-center border-b-2 border-gray-light font-bold">
+      <header className="w-full py-3 flex-col-center border-b-2 border-gray-light font-bold">
         {title}
       </header>
-      <div className={twMerge("w-full h-full", className)}>{children}</div>
+      <div className={twMerge("w-full flex-grow overflow-auto", className)}>
+        {children}
+      </div>
     </div>
   );
 }
