@@ -15,7 +15,7 @@ export default function Page() {
         />
       </div>
       <LoginForm />
-      <div className="text-xs text-gray-dark">
+      <div className="text-xs text-gray-dark mt-2">
         계정이 없나요?
         <Link
           href="/signup"

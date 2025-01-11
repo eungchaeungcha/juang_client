@@ -1,13 +1,17 @@
+import { twMerge } from "tailwind-merge";
+
 interface HeaderLayoutProps {
   title: string;
   progress?: `${number}/${number}`;
   children: React.ReactNode;
+  className?: string;
 }
 
 export default function HeaderLayout({
   title,
   progress,
   children,
+  className,
 }: HeaderLayoutProps) {
   const [currentProgress, fullProgress] = (progress ?? "0/1")
     .split("/")
@@ -24,11 +28,10 @@ export default function HeaderLayout({
           />
         </div>
       )}
-      <header className="w-full h-12 flex-col-center border-b-2 border-gray-light font-bold">
+      <header className="w-full py-4 flex-col-center border-b-2 border-gray-light font-bold">
         {title}
       </header>
-      <div className="w-full h-full">{children}</div>
+      <div className={twMerge("w-full h-full", className)}>{children}</div>
     </div>
   );
 }
- 

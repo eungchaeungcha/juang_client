@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  font-size: 14px;
+}
+@media screen and (min-width: 576px) and (min-height: 576px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
 .flex-col-center {
   @apply flex flex-col justify-center items-center;
 }
@@ -11,7 +20,7 @@
 }
 
 .styleset--input {
-  @apply outline-none w-full border-b-2 border-gray-light placeholder:text-gray-primary p-1;
+  @apply outline-none w-full border-b-2 border-gray-light placeholder:text-gray-primary p-1 focus:border-orange-primary;
 }
 
 .styleset--button {

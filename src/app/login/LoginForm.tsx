@@ -25,7 +25,7 @@ export default function LoginForm() {
         placeholder="비밀번호"
         type="password"
       />
-      <div className="w-full px-2 mt-2 mb-1">
+      <div className="w-full px-2 mt-2">
         <button className="styleset--button">로그인</button>
       </div>
     </form>
