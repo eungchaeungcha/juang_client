@@ -2,7 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 단축 속성 적용 예시 */
-.flex-center {
+:root {
+  font-size: 14px;
+}
+@media screen and (min-width: 576px) and (min-height: 576px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+.flex-col-center {
   @apply flex flex-col justify-center items-center;
+}
+
+.flex-row-center {
+  @apply flex flex-row justify-center items-center;
+}
+
+.styleset--input {
+  @apply outline-none w-full border-b-2 border-gray-light placeholder:text-gray-primary p-1 focus:border-orange-primary;
+}
+
+.styleset--button {
+  @apply rounded-full w-full flex-col-center text-white font-bold bg-orange-primary py-2;
 }
