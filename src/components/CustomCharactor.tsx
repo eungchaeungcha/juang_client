@@ -1,76 +1,23 @@
 import { twMerge } from "tailwind-merge";
-import Charactor1 from "../../public/assets/charactor1.svg";
-import Charactor2 from "../../public/assets/charactor2.svg";
-import Charactor3 from "../../public/assets/charactor3.svg";
-import Charactor4 from "../../public/assets/charactor4.svg";
-import Charactor5 from "../../public/assets/charactor5.svg";
-import Charactor6 from "../../public/assets/charactor6.svg";
-import Charactor7 from "../../public/assets/charactor7.svg";
-import Charactor8 from "../../public/assets/charactor8.svg";
-import Charactor9 from "../../public/assets/charactor9.svg";
 import { ComponentPropsWithRef } from "react";
+import { CHARACTOR_COLORS, CHARACTOR_LIST } from "@/constants/charactor";
+import clsx from "clsx";
 
 interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
   type: number;
   scale?: number;
   className?: string;
+  color?: (typeof CHARACTOR_COLORS)[number];
 }
-
-const charactorList = [
-  {
-    Charactor: Charactor1,
-    width: 233,
-    height: 194,
-  },
-  {
-    Charactor: Charactor2,
-    width: 216,
-    height: 162,
-  },
-  {
-    Charactor: Charactor3,
-    width: 201,
-    height: 191,
-  },
-  {
-    Charactor: Charactor4,
-    width: 201,
-    height: 180,
-  },
-  {
-    Charactor: Charactor5,
-    width: 193,
-    height: 206,
-  },
-  {
-    Charactor: Charactor6,
-    width: 177,
-    height: 221,
-  },
-  {
-    Charactor: Charactor7,
-    width: 207,
-    height: 183,
-  },
-  {
-    Charactor: Charactor8,
-    width: 206,
-    height: 162,
-  },
-  {
-    Charactor: Charactor9,
-    width: 265,
-    height: 198,
-  },
-];
 
 export default function CustomCharactor({
   type,
   scale = 30,
   className,
+  color = "gray",
   ...props
 }: CustomCharactorProps) {
-  const { Charactor, width, height } = charactorList[type];
+  const { Charactor, width, height } = CHARACTOR_LIST[type];
 
   return (
     <div
@@ -83,7 +30,17 @@ export default function CustomCharactor({
           height: `${Math.floor((height / 100) * scale)}px`,
         }}>
         <Charactor
-          className="absolute origin-top-left"
+          className={clsx("absolute origin-top-left", {
+            "fill-charactor-red": color === "red",
+            "fill-charactor-orange": color === "orange",
+            "fill-charactor-yellow": color === "yellow",
+            "fill-charactor-green": color === "green",
+            "fill-charactor-blue": color === "blue",
+            "fill-charactor-navy": color === "navy",
+            "fill-charactor-purple": color === "purple",
+            "fill-charactor-pink": color === "pink",
+            "fill-charactor-gray": color === "gray",
+          })}
           style={{ scale: `${scale}%` }}
         />
       </div>

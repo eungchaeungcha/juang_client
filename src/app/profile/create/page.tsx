@@ -22,6 +22,7 @@ export default function Page() {
               "border-2 border-gray-light rounded-3xl aspect-square p-2 cursor-pointer hover:bg-gray-light",
               i === selectedCharactor && "border-orange-primary"
             )}
+            color="purple"
             onClick={() => {
               setSelectedCharactor(i);
             }}
