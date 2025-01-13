@@ -14,7 +14,7 @@ export default function CustomCharactor({
   type,
   scale = 30,
   className,
-  color = "gray",
+  color = CHARACTOR_COLORS[type],
   ...props
 }: CustomCharactorProps) {
   const { Charactor, width, height } = CHARACTOR_LIST[type];
