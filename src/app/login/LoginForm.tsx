@@ -26,7 +26,7 @@ export default function LoginForm() {
         type="password"
       />
       <div className="w-full px-2 mt-2">
-        <button className="styleset--button">로그인</button>
+        <button className="styleset--button-full">로그인</button>
       </div>
     </form>
   );

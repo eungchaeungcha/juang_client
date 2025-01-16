@@ -1,50 +1,13 @@
-export const CHARACTOR_LIST = [
-  {
-    width: 233,
-    height: 194,
-  },
-  {
-    width: 216,
-    height: 162,
-  },
-  {
-    width: 201,
-    height: 191,
-  },
-  {
-    width: 201,
-    height: 180,
-  },
-  {
-    width: 193,
-    height: 206,
-  },
-  {
-    width: 177,
-    height: 221,
-  },
-  {
-    width: 207,
-    height: 183,
-  },
-  {
-    width: 206,
-    height: 162,
-  },
-  {
-    width: 265,
-    height: 198,
-  },
-] as const;
+export const CHARACTOR_URL = "/assets/charactor_sprite.svg";
 
-export const CHARACTOR_COLORS = [
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "blue",
-  "navy",
-  "purple",
-  "pink",
-  "gray",
-] as const;
+export const CHARACTOR_COLORS = {
+  red: "#f76f6a",
+  orange: "#ff9a57",
+  yellow: "#ffd969",
+  green: "#b4e06c",
+  blue: "#75c7fa",
+  navy: "#6d94ed",
+  purple: "#ba87ed",
+  pink: "#fca2d1",
+  gray: "#b8b3bc",
+} as const;

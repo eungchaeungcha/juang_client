@@ -69,7 +69,7 @@ export default function Page() {
         </p>
       </div>
       <div className="w-full flex items-end p-10">
-        <button className="styleset--button">다음</button>
+        <button className="styleset--button-full">다음</button>
       </div>
     </HeaderLayout>
   );
