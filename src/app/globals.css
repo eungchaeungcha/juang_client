@@ -26,12 +26,3 @@
 .styleset--button {
   @apply rounded-full w-full flex-col-center text-white font-bold bg-orange-primary py-2;
 }
-
-.swiper-slide {
-  display: flex;
-}
-
-.swiper-slide-active {
-  transform: scale(1.5); /* 가운데 슬라이드 확대 */
-  opacity: 1;
-}

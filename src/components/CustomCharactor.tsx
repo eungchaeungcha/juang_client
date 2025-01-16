@@ -1,36 +1,32 @@
+"use client";
+
 import { twMerge } from "tailwind-merge";
 import { ComponentPropsWithRef } from "react";
-import { CHARACTOR_COLORS, CHARACTOR_LIST } from "@/constants/charactor";
+import { CHARACTOR_COLORS } from "@/constants/charactor";
 import clsx from "clsx";
 
 interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
   type: number;
-  scale?: number;
   className?: string;
   color?: (typeof CHARACTOR_COLORS)[number];
 }
 
 export default function CustomCharactor({
   type,
-  scale = 30,
   className,
   color = CHARACTOR_COLORS[type],
   ...props
 }: CustomCharactorProps) {
-  const { Charactor, width, height } = CHARACTOR_LIST[type];
+  const spriteLink = "/assets/charactor_sprite.svg";
 
   return (
     <div
       className={twMerge("flex-col-center", className)}
       {...props}>
-      <div
-        className="relative"
-        style={{
-          width: `${Math.floor((width / 100) * scale)}px`,
-          height: `${Math.floor((height / 100) * scale)}px`,
-        }}>
-        <Charactor
-          className={clsx("absolute origin-top-left", {
+      <svg className="w-full h-full">
+        <use
+          xlinkHref={`${spriteLink}/#charactor${type + 1}`}
+          className={clsx({
             "fill-charactor-red": color === "red",
             "fill-charactor-orange": color === "orange",
             "fill-charactor-yellow": color === "yellow",
@@ -40,10 +36,8 @@ export default function CustomCharactor({
             "fill-charactor-purple": color === "purple",
             "fill-charactor-pink": color === "pink",
             "fill-charactor-gray": color === "gray",
-          })}
-          style={{ scale: `${scale}%` }}
-        />
-      </div>
+          })}></use>
+      </svg>
     </div>
   );
 }
