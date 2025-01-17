@@ -48,6 +48,7 @@ export default function CharactorSelect({
   return (
     <Swiper
       slidesPerView="auto"
+      spaceBetween={12}
       centeredSlides
       loop>
       {Array.from({ length: 9 }).map((_, i) => {
@@ -65,7 +66,7 @@ export default function CharactorSelect({
               <CustomCharactor
                 charId={charId}
                 className={clsx(
-                  "rounded-full w-28 h-28 p-3 cursor-pointer flex-shrink-0 flex-grow",
+                  "rounded-full w-32 h-32 p-3 cursor-pointer flex-shrink-0 flex-grow",
                   {
                     "opacity-40 ": value && value !== charId,
                     "opacity-100": value === charId || !value,

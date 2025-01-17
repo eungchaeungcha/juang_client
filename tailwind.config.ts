@@ -22,7 +22,7 @@ export default {
         },
         gray: {
           light: "#efeef0",
-          primary: "#b1aab4",
+          primary: "#b9b3bd",
           dark: "#766d7d",
         },
         black: {
