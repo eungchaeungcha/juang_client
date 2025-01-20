@@ -24,7 +24,7 @@
 }
 
 .styled-input--lg {
-  @apply outline-none w-full rounded-none text-2xl font-bold border-b-2 border-gray-light placeholder:text-gray-primary px-2 py-4 focus:border-orange-primary;
+  @apply outline-none w-full rounded-none text-2xl font-bold border-b-2 border-gray-light placeholder:text-gray-primary p-2 focus:border-orange-primary;
 }
 
 .styled-click {
