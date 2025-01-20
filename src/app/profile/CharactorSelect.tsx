@@ -31,13 +31,13 @@ const CharactorWrapper = ({
   }, [isSelected, slideIndex, swiper]);
 
   return (
-    <button
+    <div
       className="styleset--click"
       onClick={() => {
         swiper.slideToLoop(slideIndex);
       }}>
       {children}
-    </button>
+    </div>
   );
 };
 
