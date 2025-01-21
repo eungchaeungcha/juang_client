@@ -19,10 +19,26 @@
   @apply flex flex-row justify-center items-center;
 }
 
-.styleset--input {
-  @apply outline-none w-full border-b-2 border-gray-light placeholder:text-gray-primary p-1 focus:border-orange-primary;
+.styled-input {
+  @apply outline-none w-full rounded-none border-b-2 border-gray-light placeholder:text-gray-primary p-1 focus:border-orange-primary;
 }
 
-.styleset--button {
-  @apply rounded-full w-full flex-col-center text-white font-bold bg-orange-primary py-2;
+.styled-input--lg {
+  @apply outline-none w-full rounded-none text-2xl font-bold border-b-2 border-gray-light placeholder:text-gray-primary p-2 focus:border-orange-primary;
+}
+
+.styled-click {
+  @apply active:scale-[97%] duration-200;
+}
+
+.styled-btn {
+  @apply rounded-full flex-row-center font-bold px-4 py-2 disabled:pointer-events-none disabled:opacity-70 disabled:bg-gray-primary styled-click;
+}
+
+.styled-btn--orange {
+  @apply styled-btn text-white bg-orange-primary;
+}
+
+.styled-hr {
+  @apply w-full min-h-2 bg-gray-light;
 }

@@ -16,17 +16,17 @@ export default function LoginForm() {
       onSubmit={handleSubmit(onSubmit)}>
       <input
         {...register("id")}
-        className="styleset--input"
+        className="styled-input"
         placeholder="아이디"
       />
       <input
         {...register("password")}
-        className="styleset--input"
+        className="styled-input"
         placeholder="비밀번호"
         type="password"
       />
       <div className="w-full px-2 mt-2">
-        <button className="styleset--button">로그인</button>
+        <button className="styled-button-full">로그인</button>
       </div>
     </form>
   );
