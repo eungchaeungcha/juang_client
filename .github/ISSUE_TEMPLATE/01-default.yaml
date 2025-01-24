@@ -6,15 +6,20 @@ labels:
 assignees:
   - chasj0326
 body:
-  - type: markdown
+  - type: input
     attributes:
-      value: |
-        ## 기능 한줄 설명
-
-        - [ ] 하위 항목
-        - [ ] 하위 항목
-
+      label: 한 줄 요약
+      placeholder: 이슈 내용을 한 줄로 작성해주세요.
+      validations:
+        required: true
   - type: textarea
     attributes:
-      label: 기타 사항
-      placeholder: 기타 내용이 있다면 입력해주세요.
+      label: 작업 리스트
+      value: |
+        - [ ] 
+        - [ ]
+        - [ ]
+  - type: textarea
+    attributes:
+      label: 기타 설명
+      placeholder: 추가 설명이 있다면 입력!
