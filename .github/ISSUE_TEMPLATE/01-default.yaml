@@ -9,15 +9,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## 제목
-
-        간단 설명 입력!
+        ## 기능 한줄 설명
 
         - [ ] 하위 항목
         - [ ] 하위 항목
 
-        <br/>
-
-        ## 기타 사항
-
-        기타 내용이 있다면 입력!
+  - type: textarea
+    attributes:
+      label: 기타 사항
+      placeholder: 기타 내용이 있다면 입력해주세요.
