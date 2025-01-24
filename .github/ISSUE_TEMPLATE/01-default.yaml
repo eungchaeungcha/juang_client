@@ -10,8 +10,8 @@ body:
     attributes:
       label: 한 줄 요약
       placeholder: 이슈 내용을 한 줄로 작성해주세요.
-      validations:
-        required: true
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: 작업 리스트
