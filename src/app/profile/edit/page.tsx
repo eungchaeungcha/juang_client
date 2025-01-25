@@ -1,12 +1,14 @@
 "use client";
 
-import CustomCharactor from "@/components/CustomCharactor";
-import Layout from "@/components/layout/HeaderLayout";
-import NicknameInput from "../NicknameInput";
 import { useState } from "react";
-import CharactorSelect from "../CharactorSelect";
-import ColorSelect from "../ColorSelect";
 import clsx from "clsx";
+import {
+  NicknameInput,
+  ColorSelect,
+  CustomCharacter,
+  CharactorSelect,
+  HeaderLayout,
+} from "@/components";
 
 const DEFAULT_DATA = {
   charactor: "charactor1",
@@ -18,11 +20,11 @@ export default function Page() {
   const [target, setTarget] = useState("캐릭터");
 
   return (
-    <Layout.Wrapper>
-      <Layout.Title title="감 캐릭터 수정하기" />
-      <Layout.Content>
+    <HeaderLayout.Wrapper>
+      <HeaderLayout.Title title="감 캐릭터 수정하기" />
+      <HeaderLayout.Content>
         <div className="w-full flex-col-center p-8 gap-3">
-          <CustomCharactor
+          <CustomCharacter
             className="aspect-square w-[10rem] h-[10rem] p-6 rounded-full border-4 border-gray-light"
             charId={DEFAULT_DATA.charactor}
             color={DEFAULT_DATA.color}
@@ -53,7 +55,7 @@ export default function Page() {
             {target === "색상" && <ColorSelect value={DEFAULT_DATA.color} />}
           </div>
         </div>
-      </Layout.Content>
-    </Layout.Wrapper>
+      </HeaderLayout.Content>
+    </HeaderLayout.Wrapper>
   );
 }

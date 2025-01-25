@@ -8,7 +8,7 @@ interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
   color?: string;
 }
 
-export default function CustomCharactor({
+export default function CustomCharacter({
   charId,
   className,
   color,

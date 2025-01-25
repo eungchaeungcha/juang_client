@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderLayout from "@/components/layout/HeaderLayout";
+import { HeaderLayout } from "@/components";
 import { STEP_PARAMS, STEP_TITLE, StepParams } from "./stepConfig";
 
 interface LayoutProps {

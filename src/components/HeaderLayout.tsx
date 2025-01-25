@@ -73,7 +73,7 @@ const Content = ({ children, className }: ContentProps) => {
   );
 };
 
-const Layout = {
+const HeaderLayout = {
   Wrapper,
   Top,
   Progressbar,
@@ -81,4 +81,4 @@ const Layout = {
   Content,
 };
 
-export default Layout;
+export default HeaderLayout;

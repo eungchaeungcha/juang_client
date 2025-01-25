@@ -1,14 +1,15 @@
 "use client";
-
-import Layout from "@/components/layout/HeaderLayout";
-import CharactorSelect from "../CharactorSelect";
-import CustomCharactor from "@/components/CustomCharactor";
-import ColorSelect from "../ColorSelect";
 import { FaDice } from "react-icons/fa";
 import { getRandomNumber } from "@/utils/getRandomNumber";
 import { CHARACTOR_COLORS } from "@/constants/charactor";
 import useStep from "@/hooks/useStep";
-import NicknameInput from "../NicknameInput";
+import {
+  NicknameInput,
+  ColorSelect,
+  CustomCharacter,
+  CharactorSelect,
+  HeaderLayout,
+} from "@/components";
 import { useForm } from "react-hook-form";
 import { ProfileFormType } from "@/types/form";
 
@@ -36,7 +37,7 @@ export default function Page() {
 
   const renderCharacterPreview = () => (
     <div className="w-full flex-col-center gap-8 pt-12 pb-8">
-      <CustomCharactor
+      <CustomCharacter
         className="aspect-square w-[16rem] h-[16rem] p-6 rounded-full border-4 border-gray-light"
         charId={watch("charactor")}
         color={watch("color")}
@@ -97,26 +98,26 @@ export default function Page() {
   );
 
   return (
-    <Layout.Wrapper>
-      <Layout.Progressbar
+    <HeaderLayout.Wrapper>
+      <HeaderLayout.Progressbar
         currentStep={stepController.currentStep}
         maxStep={3}
       />
-      <Layout.Title title="내 감 캐릭터 만들기" />
+      <HeaderLayout.Title title="내 감 캐릭터 만들기" />
       {stepController.currentStep === 3 && (
-        <Layout.Top className="text-2xl p-10 break-keep">
+        <HeaderLayout.Top className="text-2xl p-10 break-keep">
           나를{" "}
           <span className="text-orange-primary font-bold">
             잘 나타낼 수 있는{" "}
           </span>
           별명을 정해주세요!
-        </Layout.Top>
+        </HeaderLayout.Top>
       )}
-      <Layout.Content className="flex flex-col justify-between">
+      <HeaderLayout.Content className="flex flex-col justify-between">
         {renderCharacterPreview()}
         {renderStepContent()}
         {renderNavigationButtons()}
-      </Layout.Content>
-    </Layout.Wrapper>
+      </HeaderLayout.Content>
+    </HeaderLayout.Wrapper>
   );
 }
