@@ -1,13 +1,13 @@
 "use client";
 import { FaDice } from "react-icons/fa";
 import { getRandomNumber } from "@/utils/getRandomNumber";
-import { CHARACTOR_COLORS } from "@/constants/charactor";
+import { CHARACTER_COLORS } from "@/constants/character";
 import useStep from "@/hooks/useStep";
 import {
   NicknameInput,
   ColorSelect,
   CustomCharacter,
-  CharactorSelect,
+  CharacterSelect,
   HeaderLayout,
 } from "@/components";
 import { useForm } from "react-hook-form";
@@ -30,7 +30,7 @@ export default function Page() {
 
   const handleRandomizeCharacter = () => {
     setValue("charactor", `charactor${getRandomNumber(1, 9)}`);
-    setValue("color", Object.values(CHARACTOR_COLORS)[getRandomNumber(1, 9)]);
+    setValue("color", Object.values(CHARACTER_COLORS)[getRandomNumber(1, 9)]);
   };
 
   const onSubmit = (data: ProfileFormType) => console.log(data);
@@ -58,7 +58,7 @@ export default function Page() {
       className="w-full"
       onSubmit={handleSubmit(onSubmit)}>
       {stepController.showStepContent(
-        <CharactorSelect
+        <CharacterSelect
           value={watch("charactor")}
           onChange={(value) => setValue("charactor", value)}
         />,

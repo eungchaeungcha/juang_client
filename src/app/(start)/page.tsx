@@ -1,11 +1,11 @@
-import Layout from "@/components/layout/HeaderLayout";
+import { HeaderLayout } from "@/components";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <Layout.Wrapper>
-      <Layout.Title title="홈 화면" />
-      <Layout.Content className="flex-col-center p-4 gap-4">
+    <HeaderLayout.Wrapper>
+      <HeaderLayout.Title title="홈 화면" />
+      <HeaderLayout.Content className="flex-col-center p-4 gap-4">
         <Link
           className="styled-btn--orange w-full"
           href="/login">
@@ -21,7 +21,7 @@ export default function Home() {
           href="/profile/create">
           프로필 생성
         </Link>
-      </Layout.Content>
-    </Layout.Wrapper>
+      </HeaderLayout.Content>
+    </HeaderLayout.Wrapper>
   );
 }
