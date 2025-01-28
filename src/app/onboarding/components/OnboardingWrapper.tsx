@@ -2,7 +2,12 @@
 
 import React from "react";
 import { HeaderLayout } from "@/components";
-import { STEP_PARAMS, STEP_TITLE, StepParams } from "../stepConfig";
+import {
+  getTemperalOnboardingData,
+  STEP_PARAMS,
+  STEP_TITLE,
+  StepParams,
+} from "../stepConfig";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { CharacterFormType } from "@/types/form";
@@ -27,7 +32,8 @@ export default function OnboardingWrapper({
   const step = useSelectedLayoutSegment();
   const formMethods = useForm<CharacterFormType>({
     defaultValues: {
-      color: CHARACTER_COLORS.orange,
+      character: getTemperalOnboardingData().character ?? "",
+      color: getTemperalOnboardingData().color ?? CHARACTER_COLORS.orange,
     },
   });
 

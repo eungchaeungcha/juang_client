@@ -7,10 +7,11 @@ import { NicknameFormType } from "@/types/form";
 import LinkButton from "@/components/LinkButton";
 import { CHARACTER_COLORS } from "@/constants/character";
 import CharacterPreview from "../components/CharacterPreview";
+import { getTemperalOnboardingData } from "../stepConfig";
 
 const CHARACTER_RESULT = {
-  character: "character1",
-  color: CHARACTER_COLORS.orange,
+  character: getTemperalOnboardingData().character ?? "character1",
+  color: getTemperalOnboardingData().color ?? CHARACTER_COLORS.orange,
 };
 // 임시, 캐릭터 생성 결과는 API 요청해서 받아와야 함
 
@@ -18,7 +19,11 @@ export default function Page() {
   const {
     register,
     formState: { isDirty, isValid },
-  } = useForm<NicknameFormType>();
+  } = useForm<NicknameFormType>({
+    defaultValues: {
+      nickname: getTemperalOnboardingData().nickname ?? "",
+    },
+  });
 
   return (
     <>

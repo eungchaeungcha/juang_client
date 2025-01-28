@@ -18,8 +18,8 @@ export default function Home() {
         </Link>
         <Link
           className="styled-btn--orange w-full"
-          href="/onboarding/character">
-          프로필 생성
+          href="/onboarding">
+          시작하기
         </Link>
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>
