@@ -1,32 +1,39 @@
 "use client";
 
 import { CharacterSelect } from "@/components";
-import Link from "next/link";
-import { useOnboardingContext } from "../context";
-import CharacterPreview from "../CharacterPreview";
+import CharacterPreview from "../components/CharacterPreview";
+import { CharacterFormType } from "@/types/form";
+import { useFormContext, useWatch } from "react-hook-form";
+import LinkButton from "@/components/LinkButton";
 
 export default function Page() {
-  const { character, setOnboarding } = useOnboardingContext();
+  const { setValue } = useFormContext<CharacterFormType>();
+  const characterValues = useWatch<CharacterFormType>();
 
   return (
     <>
-      <CharacterPreview />
+      <CharacterPreview
+        {...characterValues}
+        onRandomize={({ character, color }) => {
+          setValue("character", character);
+          setValue("color", color);
+        }}
+      />
       <div className="w-full">
         <CharacterSelect
-          value={character}
+          value={characterValues.character}
           onChange={(value) => {
-            setOnboarding("character", value);
+            setValue("character", value);
           }}
         />
       </div>
       <div className="flex-row-center w-full gap-4 p-8 h-24 text-lg">
-        {Boolean(character) && (
-          <Link
-            href="color"
-            className="styled-btn--orange w-full">
-            다음
-          </Link>
-        )}
+        <LinkButton
+          href="color"
+          className="styled-btn--orange w-full"
+          disabled={!characterValues.character}>
+          다음
+        </LinkButton>
       </div>
     </>
   );

@@ -18,7 +18,7 @@ export default function Home() {
         </Link>
         <Link
           className="styled-btn--orange w-full"
-          href="/profile/create">
+          href="/onboarding/character">
           프로필 생성
         </Link>
       </HeaderLayout.Content>

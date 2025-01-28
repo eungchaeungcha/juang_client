@@ -2,8 +2,11 @@
 
 import React from "react";
 import { HeaderLayout } from "@/components";
-import { STEP_PARAMS, STEP_TITLE, StepParams } from "./stepConfig";
+import { STEP_PARAMS, STEP_TITLE, StepParams } from "../stepConfig";
 import { useSelectedLayoutSegment } from "next/navigation";
+import { FormProvider, useForm } from "react-hook-form";
+import { CharacterFormType } from "@/types/form";
+import { CHARACTER_COLORS } from "@/constants/character";
 
 const getStepProgress = (step: StepParams) => {
   return {
@@ -16,11 +19,20 @@ const isValidSegment = (segment: string | null): segment is StepParams => {
   return segment !== null && STEP_PARAMS.includes(segment as StepParams);
 };
 
-export default function Template({ children }: { children: React.ReactNode }) {
+export default function OnboardingWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const step = useSelectedLayoutSegment();
+  const formMethods = useForm<CharacterFormType>({
+    defaultValues: {
+      color: CHARACTER_COLORS.orange,
+    },
+  });
 
   if (!isValidSegment(step)) {
-    return null;
+    return children;
   }
 
   return (
@@ -28,7 +40,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       <HeaderLayout.Progressbar {...getStepProgress(step)} />
       <HeaderLayout.Title title={STEP_TITLE[step]} />
       <HeaderLayout.Content className="flex flex-col justify-between">
-        {children}
+        <FormProvider {...formMethods}>{children}</FormProvider>
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>
   );

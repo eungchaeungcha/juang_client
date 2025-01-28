@@ -1,5 +1,4 @@
-import CheckList from "@/components/ui/CheckList";
-import Layout from "@/components/layout/HeaderLayout";
+import { HeaderLayout, CheckList } from "@/components";
 import { FaCheckCircle } from "react-icons/fa";
 
 const TERM_OF_USE_DATA = [
@@ -19,9 +18,9 @@ const TERM_OF_USE_DATA = [
 
 export default function Page() {
   return (
-    <Layout.Wrapper>
-      <Layout.Title title="회원 가입하기" />
-      <Layout.Content className="flex flex-col justify-between">
+    <HeaderLayout.Wrapper>
+      <HeaderLayout.Title title="회원 가입하기" />
+      <HeaderLayout.Content className="flex flex-col justify-between">
         <div className="px-8 py-10 flex flex-col justify-center gap-10">
           <div className="flex flex-col gap-4">
             <label className="font-bold px-1">아이디를 입력해주세요.</label>
@@ -71,7 +70,7 @@ export default function Page() {
         <div className="w-full flex items-end p-8">
           <button className="styled-btn--orange w-full">다음</button>
         </div>
-      </Layout.Content>
-    </Layout.Wrapper>
+      </HeaderLayout.Content>
+    </HeaderLayout.Wrapper>
   );
 }

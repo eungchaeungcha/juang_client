@@ -1,10 +1,10 @@
 import React from "react";
-import { OnboardingProvider } from "./context";
+import OnboardingWrapper from "./components/OnboardingWrapper";
 
 export default async function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <OnboardingProvider>{children}</OnboardingProvider>;
+  return <OnboardingWrapper>{children}</OnboardingWrapper>;
 }

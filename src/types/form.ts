@@ -8,8 +8,11 @@ export interface SignupFormType {
   password: string;
 }
 
-export interface ProfileFormType {
-  charactor: string;
+export interface CharacterFormType {
+  character: string;
   color: string;
+}
+
+export interface NicknameFormType {
   nickname: string;
 }
