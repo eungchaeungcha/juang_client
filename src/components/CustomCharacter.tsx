@@ -1,5 +1,5 @@
 import { ComponentPropsWithRef } from "react";
-import { CHARACTOR_URL } from "@/constants/charactor";
+import { CHARACTER_URL } from "@/constants/character";
 import clsx from "clsx";
 
 interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
@@ -8,7 +8,7 @@ interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
   color?: string;
 }
 
-export default function CustomCharactor({
+export default function CustomCharacter({
   charId,
   className,
   color,
@@ -20,7 +20,7 @@ export default function CustomCharactor({
       {...props}>
       <svg className="w-full h-full">
         <use
-          xlinkHref={`${CHARACTOR_URL}/#${charId}`}
+          xlinkHref={`${CHARACTER_URL}/#${charId}`}
           className={clsx(color === undefined && "fill-charactor-orange")}
           style={{
             fill: color,

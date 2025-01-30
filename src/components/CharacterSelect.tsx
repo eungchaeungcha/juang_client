@@ -1,6 +1,6 @@
 "use client";
 
-import CustomCharactor from "@/components/CustomCharactor";
+import CustomCharacter from "./CustomCharacter";
 import clsx from "clsx";
 import { useEffect } from "react";
 import "swiper/css";
@@ -52,7 +52,7 @@ export default function CharactorSelect({
       centeredSlides
       loop>
       {Array.from({ length: 9 }).map((_, i) => {
-        const charId = `charactor${i + 1}`;
+        const charId = `character${i + 1}`;
         return (
           <SwiperSlide
             key={charId}
@@ -63,7 +63,7 @@ export default function CharactorSelect({
             <CharactorWrapper
               isSelected={charId === value}
               slideIndex={i}>
-              <CustomCharactor
+              <CustomCharacter
                 charId={charId}
                 className={clsx(
                   "rounded-full w-32 h-32 p-3 cursor-pointer flex-shrink-0 flex-grow",

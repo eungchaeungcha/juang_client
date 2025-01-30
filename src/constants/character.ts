@@ -1,6 +1,6 @@
-export const CHARACTOR_URL = "/assets/charactor_sprite.svg";
+export const CHARACTER_URL = "/assets/character_sprite.svg";
 
-export const CHARACTOR_COLORS = {
+export const CHARACTER_COLORS = {
   red: "#f76f6a",
   orange: "#ff9a57",
   yellow: "#ffd969",
