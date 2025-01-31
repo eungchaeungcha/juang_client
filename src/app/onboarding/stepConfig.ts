@@ -1,4 +1,3 @@
-import { CHARACTER_COLORS } from "@/constants/character";
 import { CharacterFormType, NicknameFormType } from "@/types/form";
 
 export const STEP_CONFIG = [
@@ -28,8 +27,8 @@ export const getTemperalOnboardingData = (): Partial<
     }
 > => {
   return {
-    character: "character1",
-    color: CHARACTER_COLORS.orange,
+    // character: "character1",
+    // color: CHARACTER_COLORS.orange,
     // nickname: "차차",
     // treeCode: "1234",
   };
