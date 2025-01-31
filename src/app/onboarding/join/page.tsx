@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 
@@ -8,17 +9,21 @@ export default function Page() {
     <div className="flex-col-center w-full h-full gap-12">
       <div className="flex-col-center gap-2 w-full">
         <div className="text-gray-dark">아직 개설된 감나무가 없나요?</div>
-        <div className={twMerge(buttonClassName, "bg-green-primary")}>
+        <Link
+          href="/onboarding/join/create"
+          className={twMerge(buttonClassName, "bg-green-primary")}>
           우리 가족 감나무 만들기
           <FaArrowCircleRight className="text-2xl" />
-        </div>
+        </Link>
       </div>
       <div className="flex-col-center gap-2 w-full">
         <div className="text-gray-dark">이미 감나무 코드를 받으셨나요?</div>
-        <div className={twMerge(buttonClassName, "bg-orange-primary")}>
+        <Link
+          href="/onboarding/join/code"
+          className={twMerge(buttonClassName, "bg-orange-primary")}>
           코드 입력하고 참여하기
           <FaArrowCircleRight className="text-2xl" />
-        </div>
+        </Link>
       </div>
     </div>
   );
