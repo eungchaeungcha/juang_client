@@ -8,6 +8,7 @@ import LinkButton from "@/components/LinkButton";
 import { CHARACTER_COLORS } from "@/constants/character";
 import CharacterPreview from "../components/CharacterPreview";
 import { getTemperalOnboardingData } from "../stepConfig";
+import Triangle from "@/components/Triangle";
 
 const CHARACTER_RESULT = {
   character: getTemperalOnboardingData().character ?? "character1",
@@ -27,7 +28,20 @@ export default function Page() {
 
   return (
     <>
-      <CharacterPreview {...CHARACTER_RESULT} />
+      <div className="flex-col-center">
+        <CharacterPreview {...CHARACTER_RESULT} />
+        <Triangle
+          className="border-gray-light"
+          dir="up"
+          width={25}
+          height={25}
+        />
+        <div className="text-center w-4/5 rounded-xl bg-gray-light p-4 break-keep">
+          나를
+          <span className="text-orange-secondray"> 잘 나타낼 수 있는 별명</span>
+          을 지어주세요!
+        </div>
+      </div>
       <NicknameInput
         {...register("nickname", {
           required: true,
