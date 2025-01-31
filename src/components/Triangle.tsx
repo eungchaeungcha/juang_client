@@ -2,9 +2,9 @@ import { CSSProperties } from "react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 
-type Direction = "up" | "left" | "down" | "right";
+export type Direction = "up" | "left" | "down" | "right";
 
-interface TriangleProps {
+export interface TriangleProps {
   className?: string;
   dir: Direction;
   width: number;

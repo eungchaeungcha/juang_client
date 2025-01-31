@@ -4,6 +4,7 @@ export { default as CheckList } from "./CheckList";
 export { default as ColorSelect } from "./ColorSelect";
 export { default as CustomCharacter } from "./CustomCharacter";
 export { default as HeaderLayout } from "./HeaderLayout";
-export { default as NicknameInput } from "./NicknameInput";
+export { default as LargeInput } from "./LargeInput";
 export { default as LinkButton } from "./LinkButton";
 export { default as Triangle } from "./Triangle";
+export { default as BallonBox } from "./BallonBox";

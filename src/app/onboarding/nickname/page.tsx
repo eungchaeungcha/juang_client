@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { LinkButton, NicknameInput, Triangle } from "@/components";
+import { BallonBox, LinkButton } from "@/components";
 import { CHARACTER_COLORS } from "@/constants/character";
 import { NicknameFormType } from "@/types/form";
 import CharacterPreview from "../components/CharacterPreview";
@@ -26,25 +26,25 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex-col-center">
+      <div>
         <CharacterPreview {...CHARACTER_RESULT} />
-        <Triangle
-          className="border-gray-light"
+        <BallonBox
           dir="up"
-          width={25}
-          height={25}
-        />
-        <div className="text-center w-4/5 rounded-xl bg-gray-light p-4 break-keep">
+          className="text-center w-4/5 rounded-xl bg-gray-light p-4 break-keep">
           나를
           <span className="text-orange-secondray"> 잘 나타낼 수 있는 별명</span>
           을 지어주세요!
-        </div>
+        </BallonBox>
       </div>
-      <NicknameInput
-        {...register("nickname", {
-          required: true,
-        })}
-      />
+      <div className="px-8">
+        <input
+          {...register("nickname", {
+            required: true,
+          })}
+          placeholder="별명을 입력하세요"
+          className="styled-input--lg text-center"
+        />
+      </div>
       <div className="flex-row-center w-full gap-4 p-8 h-24 text-lg">
         <Link
           href="color"
