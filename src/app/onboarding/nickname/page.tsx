@@ -1,14 +1,12 @@
 "use client";
 
-import { NicknameInput } from "@/components";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { NicknameFormType } from "@/types/form";
-import LinkButton from "@/components/LinkButton";
+import { LinkButton, NicknameInput, Triangle } from "@/components";
 import { CHARACTER_COLORS } from "@/constants/character";
+import { NicknameFormType } from "@/types/form";
 import CharacterPreview from "../components/CharacterPreview";
 import { getTemperalOnboardingData } from "../stepConfig";
-import Triangle from "@/components/Triangle";
 
 const CHARACTER_RESULT = {
   character: getTemperalOnboardingData().character ?? "character1",

@@ -11,7 +11,7 @@ export const STEP_CONFIG = [
 export const STEP_PARAMS = STEP_CONFIG.map((step) => step.id);
 
 export const STEP_TITLE = Object.fromEntries(
-  STEP_CONFIG.map((step) => [step.id, step.title])
+  STEP_CONFIG.map((step) => [step.id, step.title]),
 );
 
 export type StepParams = (typeof STEP_CONFIG)[number]["id"];

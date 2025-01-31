@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { CSSProperties } from "react";
+import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 
 type Direction = "up" | "left" | "down" | "right";
@@ -50,7 +50,7 @@ export default function Triangle({
             dir === "up" || dir === "down",
           "border-t-transparent border-b-transparent":
             dir === "left" || dir === "right",
-        })
+        }),
       )}
     />
   );

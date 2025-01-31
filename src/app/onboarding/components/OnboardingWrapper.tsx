@@ -1,17 +1,17 @@
 "use client";
 
+import { useSelectedLayoutSegment } from "next/navigation";
 import React from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { HeaderLayout } from "@/components";
+import { CHARACTER_COLORS } from "@/constants/character";
+import { CharacterFormType } from "@/types/form";
 import {
-  getTemperalOnboardingData,
   STEP_PARAMS,
   STEP_TITLE,
   StepParams,
+  getTemperalOnboardingData,
 } from "../stepConfig";
-import { useSelectedLayoutSegment } from "next/navigation";
-import { FormProvider, useForm } from "react-hook-form";
-import { CharacterFormType } from "@/types/form";
-import { CHARACTER_COLORS } from "@/constants/character";
 
 const getStepProgress = (step: StepParams) => {
   return {

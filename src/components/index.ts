@@ -5,3 +5,5 @@ export { default as ColorSelect } from "./ColorSelect";
 export { default as CustomCharacter } from "./CustomCharacter";
 export { default as HeaderLayout } from "./HeaderLayout";
 export { default as NicknameInput } from "./NicknameInput";
+export { default as LinkButton } from "./LinkButton";
+export { default as Triangle } from "./Triangle";

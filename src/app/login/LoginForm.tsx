@@ -1,7 +1,7 @@
 "use client";
 
-import { LoginFormType } from "@/types/form";
 import { useForm } from "react-hook-form";
+import { LoginFormType } from "@/types/form";
 
 export default function LoginForm() {
   const { register, handleSubmit } = useForm<LoginFormType>();

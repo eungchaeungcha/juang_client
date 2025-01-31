@@ -1,5 +1,19 @@
 {
   "bracketSameLine": true,
   "singleAttributePerLine": true,
-  "printWidth": 80
+  "printWidth": 80,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^next",
+    "^react",
+    "<THIRD_PARTY_MODULES>",
+    "^@/pages/(.*)$",
+    "^@/components/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/utils/(.*)$",
+    "^@/constants/(.*)$",
+    "^@/types/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSortSpecifiers": true
 }

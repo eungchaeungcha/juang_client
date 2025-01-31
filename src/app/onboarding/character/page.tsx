@@ -1,10 +1,9 @@
 "use client";
 
-import { CharacterSelect } from "@/components";
-import CharacterPreview from "../components/CharacterPreview";
-import { CharacterFormType } from "@/types/form";
 import { useFormContext, useWatch } from "react-hook-form";
-import LinkButton from "@/components/LinkButton";
+import { CharacterSelect, LinkButton } from "@/components";
+import { CharacterFormType } from "@/types/form";
+import CharacterPreview from "../components/CharacterPreview";
 
 export default function Page() {
   const { setValue } = useFormContext<CharacterFormType>();
