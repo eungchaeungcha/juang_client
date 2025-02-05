@@ -40,7 +40,7 @@ const Progressbar = ({ maxStep, currentStep }: ProgressbarProps) => {
   return (
     <div className="styled-hr">
       <div
-        className="h-full bg-orange-primary"
+        className="h-full bg-orange-primary duration-300"
         style={{ width: progressWidth }}
       />
     </div>

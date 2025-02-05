@@ -1,10 +1,10 @@
 "use client";
 
-import CustomCharacter from "./CustomCharacter";
-import clsx from "clsx";
 import { useEffect } from "react";
+import clsx from "clsx";
 import "swiper/css";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import CustomCharacter from "./CustomCharacter";
 
 interface CharactorSelectProps {
   value?: string;
@@ -70,7 +70,7 @@ export default function CharactorSelect({
                   {
                     "opacity-40 ": value && value !== charId,
                     "opacity-100": value === charId || !value,
-                  }
+                  },
                 )}
               />
             </CharactorWrapper>

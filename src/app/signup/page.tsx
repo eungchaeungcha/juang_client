@@ -1,5 +1,5 @@
-import { HeaderLayout, CheckList } from "@/components";
 import { FaCheckCircle } from "react-icons/fa";
+import { CheckList, HeaderLayout } from "@/components";
 
 const TERM_OF_USE_DATA = [
   {

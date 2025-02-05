@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { getTemperalOnboardingData } from "./stepConfig";
 
 export default function Page() {

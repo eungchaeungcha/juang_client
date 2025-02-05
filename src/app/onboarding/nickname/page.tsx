@@ -1,11 +1,11 @@
 "use client";
 
-import { NicknameInput } from "@/components";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { NicknameFormType } from "@/types/form";
-import LinkButton from "@/components/LinkButton";
+import { BallonBox, LinkButton } from "@/components";
+import FixedInput from "@/components/FixedInput";
 import { CHARACTER_COLORS } from "@/constants/character";
+import { NicknameFormType } from "@/types/form";
 import CharacterPreview from "../components/CharacterPreview";
 import { getTemperalOnboardingData } from "../stepConfig";
 
@@ -27,12 +27,25 @@ export default function Page() {
 
   return (
     <>
-      <CharacterPreview {...CHARACTER_RESULT} />
-      <NicknameInput
-        {...register("nickname", {
-          required: true,
-        })}
-      />
+      <div>
+        <CharacterPreview {...CHARACTER_RESULT} />
+        <BallonBox
+          dir="up"
+          className="text-center w-4/5 rounded-xl bg-gray-light p-4 break-keep">
+          나를
+          <span className="text-orange-secondray"> 잘 나타낼 수 있는 별명</span>
+          을 지어주세요!
+        </BallonBox>
+      </div>
+      <div className="px-8">
+        <FixedInput
+          {...register("nickname", {
+            required: true,
+          })}
+          placeholder="둥글둥글 빤딱빤딱한"
+          suffix="감"
+        />
+      </div>
       <div className="flex-row-center w-full gap-4 p-8 h-24 text-lg">
         <Link
           href="color"

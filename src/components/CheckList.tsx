@@ -26,7 +26,7 @@ export default function CheckList({
 
   const toggleAllCheck = () => {
     setCheckItems((prevItems) =>
-      prevItems.map((item) => ({ ...item, checked: !isAllChecked }))
+      prevItems.map((item) => ({ ...item, checked: !isAllChecked })),
     );
   };
 
@@ -34,8 +34,8 @@ export default function CheckList({
     return () => {
       setCheckItems((prevItems) =>
         prevItems.map((item) =>
-          id === item.id ? { ...item, checked: !item.checked } : item
-        )
+          id === item.id ? { ...item, checked: !item.checked } : item,
+        ),
       );
     };
   };

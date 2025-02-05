@@ -1,10 +1,10 @@
 "use client";
 
+import { FaDice } from "react-icons/fa";
 import { CustomCharacter } from "@/components";
+import { getRandomNumber } from "@/utils/getRandomNumber";
 import { CHARACTER_COLORS } from "@/constants/character";
 import { CharacterFormType } from "@/types/form";
-import { getRandomNumber } from "@/utils/getRandomNumber";
-import { FaDice } from "react-icons/fa";
 
 interface CharacterPreviewProps {
   character?: string;

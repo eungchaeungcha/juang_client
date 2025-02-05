@@ -1,7 +1,7 @@
 "use client";
 
-import { CHARACTER_COLORS } from "@/constants/character";
 import clsx from "clsx";
+import { CHARACTER_COLORS } from "@/constants/character";
 
 interface ColorSelectProps {
   value?: string;
@@ -16,7 +16,8 @@ export default function ColorSelect({ value, onChange }: ColorSelectProps) {
           key={name}
           className={clsx(
             "relative w-full aspect-square rounded-3xl cursor-pointer styleset--click",
-            code === value && "border-[6px] border-black-soft border-opacity-10"
+            code === value &&
+              "border-[6px] border-black-soft border-opacity-10",
           )}
           style={{ background: code }}
           onClick={() => {

@@ -1,5 +1,5 @@
-import { HeaderLayout } from "@/components";
 import Link from "next/link";
+import { HeaderLayout } from "@/components";
 
 export default function Home() {
   return (

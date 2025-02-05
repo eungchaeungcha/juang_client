@@ -1,6 +1,6 @@
 import { ComponentPropsWithRef } from "react";
-import { CHARACTER_URL } from "@/constants/character";
 import clsx from "clsx";
+import { CHARACTER_URL } from "@/constants/character";
 
 interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
   charId?: string;
