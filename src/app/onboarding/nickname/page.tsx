@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { BallonBox, LinkButton } from "@/components";
+import FixedInput from "@/components/FixedInput";
 import { CHARACTER_COLORS } from "@/constants/character";
 import { NicknameFormType } from "@/types/form";
 import CharacterPreview from "../components/CharacterPreview";
@@ -37,12 +38,12 @@ export default function Page() {
         </BallonBox>
       </div>
       <div className="px-8">
-        <input
+        <FixedInput
           {...register("nickname", {
             required: true,
           })}
-          placeholder="별명을 입력하세요"
-          className="styled-input--lg text-center"
+          placeholder="둥글둥글 빤딱빤딱한"
+          suffix="감"
         />
       </div>
       <div className="flex-row-center w-full gap-4 p-8 h-24 text-lg">

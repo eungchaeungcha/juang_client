@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import FixedInput from "@/components/FixedInput";
 import useValidateParams from "@/hooks/useValidateParams";
 
 const variablesByMode = {
   create: {
     guide: "우리 가족 감나무만의 이름을 지어주세요",
-    placeholder: "화목한 김가네의 주렁주렁 감나무",
+    placeholder: "화목한 김가네 주렁주렁",
     otherLink: {
       href: "/onboarding/join/code",
       text: "이미 감나무 코드를 받으셨나요?",
@@ -34,10 +35,17 @@ export default function Page() {
         <div className="text-orange-primary font-bold px-2 mb-2 text-center break-keep">
           {variablesByMode[mode].guide}
         </div>
-        <input
-          placeholder={variablesByMode[mode].placeholder}
-          className="styled-input--lg text-center"
-        />
+        {mode === "code" ? (
+          <input
+            placeholder={variablesByMode[mode].placeholder}
+            className="styled-input--lg text-center"
+          />
+        ) : (
+          <FixedInput
+            placeholder={variablesByMode[mode].placeholder}
+            suffix="감나무"
+          />
+        )}
       </div>
 
       <div className="flex-col-center gap-4">
