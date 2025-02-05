@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <div className="flex flex-col justify-center h-full gap-16 px-8">
       <div>
-        <div className="text-gray-primary px-2 mb-2 text-center text-sm break-keep">
+        <div className="text-orange-primary font-bold px-2 mb-2 text-center break-keep">
           {variablesByMode[mode].guide}
         </div>
         <input
