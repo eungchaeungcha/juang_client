@@ -9,3 +9,4 @@ export { default as LinkButton } from "./LinkButton";
 export { default as Triangle } from "./Triangle";
 export { default as BallonBox } from "./BallonBox";
 export { default as CustomIcon } from "./CustomIcon";
+export { default as ShowError } from "./ShowError";

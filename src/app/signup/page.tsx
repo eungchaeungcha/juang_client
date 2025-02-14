@@ -3,9 +3,10 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { HeaderLayout } from "@/components";
 import { zodResolver } from "@hookform/resolvers/zod";
+import PasswordInput from "./PasswordInput";
 import SignupAgreements from "./SignupAgreements";
-import SignupInputGroup from "./SignupInputGroup";
 import { SignupFormType, SignupSchema } from "./SignupSchema";
+import UsernameInput from "./UsernameInput";
 
 export default function Page() {
   const formMethods = useForm<SignupFormType>({
@@ -23,7 +24,10 @@ export default function Page() {
           console.log(data);
         })}>
         <FormProvider {...formMethods}>
-          <SignupInputGroup />
+          <div className="px-8 py-10 flex flex-col justify-center gap-10">
+            <UsernameInput />
+            <PasswordInput />
+          </div>
           <div className="styled-hr" />
           <SignupAgreements />
           <div className="w-full flex items-end p-8">
