@@ -28,7 +28,7 @@
 }
 
 .styled-click {
-  @apply active:scale-[97%] duration-200 cursor-pointer;
+  @apply active:scale-[97%] duration-200 cursor-pointer disabled:pointer-events-none;
 }
 
 .styled-btn {

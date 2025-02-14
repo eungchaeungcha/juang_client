@@ -1,4 +1,5 @@
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
+import { FaCheck } from "react-icons/fa";
 import { ShowError } from "@/components";
 import { SignupFormType } from "./SignupSchema";
 
@@ -7,11 +8,22 @@ export default function UsernameInput() {
     register,
     formState: { errors },
     setValue,
+    setFocus,
     trigger,
   } = useFormContext<SignupFormType>();
 
+  const { usernameUnique } = useWatch<SignupFormType>();
+
   const handleClickDuplicateCheck = () => {
-    setValue("usernameUnique", true);
+    if (errors.username) return;
+    const isUnique = true; // 임시값, API 요청 결과로 대체 예정
+
+    setValue("usernameUnique", isUnique);
+    trigger("usernameUnique");
+
+    if (!isUnique) {
+      setFocus("username");
+    }
   };
 
   return (
@@ -27,13 +39,23 @@ export default function UsernameInput() {
               onBlur: () => {
                 trigger("usernameUnique");
               },
+              onChange: () => {
+                if (!errors.usernameUnique) {
+                  setValue("usernameUnique", undefined!);
+                }
+              },
             })}
           />
-          <button
-            className="text-xs flex-shrink-0 styled-click bg-gray-light p-2 rounded-md"
-            onClick={handleClickDuplicateCheck}>
-            중복 확인
-          </button>
+          {!usernameUnique ? (
+            <button
+              type="button"
+              className="text-xs flex-shrink-0 styled-click bg-gray-light p-2 rounded-md"
+              onClick={handleClickDuplicateCheck}>
+              중복 확인
+            </button>
+          ) : (
+            <FaCheck className="text-orange-primary" />
+          )}
         </div>
         <ShowError
           errors={errors}
