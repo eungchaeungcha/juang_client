@@ -8,7 +8,7 @@ export const SignupRegex = {
 
 export const SignupErrorMessage = {
   username: "영소문자/숫자 조합의 6-12자",
-  password: "특수문자(!@#$%^*+=-)/영문자/숫자 2개 이상의 조합을 사용한 8-20자",
+  password: "!@#$%^*+=-/영문자/숫자 2개 이상의 조합을 사용한 8-20자",
   passwordCheck: "비밀번호가 일치하지 않습니다.",
   termsAgreement: "모든 필수약관에 동의해주세요.",
 };

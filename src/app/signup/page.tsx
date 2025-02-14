@@ -10,6 +10,7 @@ import { SignupFormType, SignupSchema } from "./SignupSchema";
 export default function Page() {
   const formMethods = useForm<SignupFormType>({
     resolver: zodResolver(SignupSchema),
+    mode: "onBlur",
   });
 
   return (
@@ -28,7 +29,8 @@ export default function Page() {
           <div className="w-full flex items-end p-8">
             <button
               type="submit"
-              className="styled-btn--orange w-full">
+              className="styled-btn--orange w-full"
+              disabled={!formMethods.formState.isValid}>
               다음
             </button>
           </div>

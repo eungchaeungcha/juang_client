@@ -4,19 +4,20 @@ import { CheckBox } from "@/components";
 import { SignupFormType } from "./SignupSchema";
 
 export default function SignupAgreements() {
-  const { register, setValue } = useFormContext<SignupFormType>();
-  const { termsAgreement } = useWatch<SignupFormType>();
+  const { register, setValue, trigger } = useFormContext<SignupFormType>();
+  const {
+    termsAgreement: { marketingInfo, privacyPolicy, termsOfService } = {},
+  } = useWatch<SignupFormType>();
 
   const isAllChecked = Boolean(
-    termsAgreement?.marketingInfo &&
-      termsAgreement?.privacyPolicy &&
-      termsAgreement?.termsOfService,
+    marketingInfo && privacyPolicy && termsOfService,
   );
 
   const handleCheckAll = () => {
     setValue("termsAgreement.termsOfService", !isAllChecked);
     setValue("termsAgreement.privacyPolicy", !isAllChecked);
     setValue("termsAgreement.marketingInfo", !isAllChecked);
+    trigger("termsAgreement");
   };
 
   return (
@@ -51,9 +52,6 @@ export default function SignupAgreements() {
           />
         </div>
       </div>
-      <p className="text-gray-primary text-sm tracking-tighter">
-        서비스 이용을 위해 약관을 확인하고 동의해주세요.
-      </p>
     </div>
   );
 }
