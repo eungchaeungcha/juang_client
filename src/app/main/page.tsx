@@ -21,14 +21,14 @@ export default function Page() {
       {/* 하단 - 감 캐릭터와 버튼들, 질문들 */}
       <div className="flex flex-col w-full flex-grow relative">
         {/* 뒷배경 벽 */}
-        <div className="flex-grow border-b-[2rem] bg-orange-100 border-b-orange-200 border-l-[4rem] border-r-[4rem] border-r-orange-50 border-l-orange-50" />
+        <div className="flex-grow border-b-[2rem] bg-gray-100 border-b-gray-200 border-l-[3rem] border-r-[3rem] border-r-gray-50 border-l-gray-50" />
         {/* 캐릭터 */}
         <CustomCharacter
           className="absolute left-0 right-0 bottom-0 m-auto h-[55%]"
           charId="character1"
         />
         {/* 유틸 버튼 */}
-        <div className="absolute left-0 right-0 w-[calc(100%-8rem)] p-3 m-auto flex justify-between">
+        <div className="absolute left-0 right-0 w-[calc(100%-6rem)] p-3 m-auto flex justify-between">
           <CustomIcon
             className="flex-col-center bg-white rounded-full shadow-md styled-click w-14 h-14 p-2"
             icon="Calendar"
@@ -50,7 +50,7 @@ export default function Page() {
         </div>
       </div>
       {/* 아래 바닥 */}
-      <div className="flex flex-grow bg-orange-200 w-full" />
+      <div className="flex flex-grow bg-gray-200 w-full" />
     </div>
   );
 }
