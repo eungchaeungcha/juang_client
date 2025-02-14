@@ -1,5 +1,4 @@
-import { CustomCharacter } from "@/components";
-import CustomIcon from "@/components/CustomIcon";
+import { CustomCharacter, CustomIcon } from "@/components";
 
 const mainPageValues = {
   treeName: "화목한 김가네 감나무",

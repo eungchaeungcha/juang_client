@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
-import "./globals.css";
+import "./styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Juang App",

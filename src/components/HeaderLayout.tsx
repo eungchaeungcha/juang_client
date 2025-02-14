@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ComponentPropsWithRef, ElementType } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface WrapperProps {
@@ -60,16 +60,25 @@ const Title = ({ title }: TitleProps) => {
   );
 };
 
-interface ContentProps {
+type ContentProps<T extends ElementType = "div"> = ComponentPropsWithRef<T> & {
+  as?: T;
   children: React.ReactNode;
-  className?: string;
-}
+};
 
-const Content = ({ children, className }: ContentProps) => {
+const Content = <T extends ElementType>({
+  children,
+  className,
+  as,
+  ...props
+}: ContentProps<T>) => {
+  const Component = as || "div";
+
   return (
-    <div className={twMerge("w-full flex-grow overflow-auto", className)}>
+    <Component
+      className={twMerge("w-full flex-grow overflow-auto", className)}
+      {...props}>
       {children}
-    </div>
+    </Component>
   );
 };
 
