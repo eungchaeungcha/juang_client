@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const API_BASE_URL = "http://43.201.36.213:8080/api/v1";
+
 const nextConfig: NextConfig = {
   /* config options here */
   webpack(config) {
@@ -19,6 +21,14 @@ const nextConfig: NextConfig = {
         },
       },
     },
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: `${API_BASE_URL}/:path*`,
+      },
+    ];
   },
 };
 
