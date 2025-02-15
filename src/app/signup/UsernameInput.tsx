@@ -40,7 +40,7 @@ export default function UsernameInput() {
                 trigger("usernameUnique");
               },
               onChange: () => {
-                if (!errors.usernameUnique) {
+                if (usernameUnique !== undefined) {
                   setValue("usernameUnique", undefined!);
                 }
               },
