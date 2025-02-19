@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
     },
   },
   async rewrites() {
+    console.log("rewrite...");
     return [
       {
         source: "/:path*",

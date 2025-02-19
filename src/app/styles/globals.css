@@ -42,3 +42,8 @@
 .styled-hr {
   @apply w-full min-h-2 bg-gray-light;
 }
+
+.Toastify {
+  width: 100%;
+  position: relative;
+}
