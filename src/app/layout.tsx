@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
+import TanStackQueryProvider from "@/providers/TanStackQueryProvider";
 import "./styles/globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`h-svh bg-gray-light ${nanumGothic.className}`}>
         <main className="inset-0 h-full overflow-auto m-auto bg-white sm:aspect-[9/16] text-black-soft min-w-[300px]">
-          {children}
+          <TanStackQueryProvider>{children}</TanStackQueryProvider>
         </main>
       </body>
     </html>

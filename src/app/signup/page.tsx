@@ -2,9 +2,9 @@
 
 import { FormProvider, useForm } from "react-hook-form";
 import { HeaderLayout } from "@/components";
-import { api } from "@/services/api";
+import authApi from "@/services/authApi";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterPostBody } from "@/types/request";
+import { useMutation } from "@tanstack/react-query";
 import PasswordInput from "./PasswordInput";
 import SignupAgreements from "./SignupAgreements";
 import { SignupFormType, SignupSchema } from "./SignupSchema";
@@ -16,12 +16,15 @@ export default function Page() {
     mode: "onBlur",
   });
 
-  const onSignup = async ({ username, password }: SignupFormType) => {
-    const response = await api.post<RegisterPostBody, void>("auth/register", {
-      username,
-      password,
-    });
-    console.log(response);
+  const { mutate, isPending } = useMutation({
+    mutationFn: authApi.postRegister,
+    onSuccess: () => {
+      console.log("signup success");
+    },
+  });
+
+  const onSignup = ({ username, password }: SignupFormType) => {
+    mutate({ username, password });
   };
 
   return (
@@ -43,7 +46,7 @@ export default function Page() {
               type="submit"
               className="styled-btn--orange w-full"
               disabled={!formMethods.formState.isValid}>
-              다음
+              {isPending ? "로딩중" : "다음"}
             </button>
           </div>
         </FormProvider>
