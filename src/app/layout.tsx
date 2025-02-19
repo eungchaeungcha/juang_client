@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
-import "./globals.css";
+import TanStackQueryProvider from "@/providers/TanStackQueryProvider";
+import { CustomToastContainer } from "@/components/CustomToast";
+import "./styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Juang App",
@@ -22,7 +24,8 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`h-svh bg-gray-light ${nanumGothic.className}`}>
         <main className="inset-0 h-full overflow-auto m-auto bg-white sm:aspect-[9/16] text-black-soft min-w-[300px]">
-          {children}
+          <TanStackQueryProvider>{children}</TanStackQueryProvider>
+          <CustomToastContainer fontClassName={nanumGothic.className} />
         </main>
       </body>
     </html>

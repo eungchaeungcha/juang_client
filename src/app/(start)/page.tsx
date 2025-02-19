@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { HeaderLayout } from "@/components";
+import { HeaderLayout, customToast } from "@/components";
 
 export default function Home() {
+  const notify = () => customToast.success("토스트!");
+
   return (
     <HeaderLayout.Wrapper>
       <HeaderLayout.Title title="홈 화면" />
@@ -21,6 +25,11 @@ export default function Home() {
           href="/onboarding">
           시작하기
         </Link>
+        <button
+          className="styled-btn--orange w-full"
+          onClick={notify}>
+          토스트 띄우기
+        </button>
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>
   );

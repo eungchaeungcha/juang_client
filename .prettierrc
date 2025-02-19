@@ -5,15 +5,18 @@
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
     "^next",
-    "^react",
+    "^react$",
     "<THIRD_PARTY_MODULES>",
-    "^@/pages/(.*)$",
-    "^@/components/(.*)$",
-    "^@/hooks/(.*)$",
-    "^@/utils/(.*)$",
-    "^@/constants/(.*)$",
-    "^@/types/(.*)$",
-    "^[./]"
+    "^@/services(.*)$",
+    "^@/pages(.*)$",
+    "^@/providers(.*)$",
+    "^@/components(.*)$",
+    "^@/hooks(.*)$",
+    "^@/utils(.*)$",
+    "^@/constants(.*)$",
+    "^@/types(.*)$",
+    "^../(.*)$",
+    "^./(.*)$"
   ],
   "importOrderSortSpecifiers": true
 }

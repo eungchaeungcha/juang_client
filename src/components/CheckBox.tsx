@@ -1,28 +1,24 @@
+import { ComponentPropsWithRef } from "react";
 import { FaCheck } from "react-icons/fa";
 
-interface CheckBoxProps {
+interface CheckBoxProps extends ComponentPropsWithRef<"input"> {
   text: string;
-  checked: boolean;
-  onChange: VoidFunction;
 }
 
-export default function CheckBox({ text, checked, onChange }: CheckBoxProps) {
+export default function CheckBox({ text, ...props }: CheckBoxProps) {
   return (
     <div className="flex gap-1 items-center">
       <div className="relative flex-col-center">
         <input
           type="checkbox"
-          checked={checked}
-          onChange={onChange}
           className="appearance-none border-2 border-green-primary w-4 h-4 bg-white rounded-sm checked:bg-green-primary cursor-pointer"
+          {...props}
         />
-        {checked && (
-          <FaCheck
-            color="white"
-            className="absolute inset-0 m-auto pointer-events-none"
-            size={10}
-          />
-        )}
+        <FaCheck
+          color="white"
+          className="absolute inset-0 m-auto pointer-events-none"
+          size={10}
+        />
       </div>
       <label>{text}</label>
     </div>

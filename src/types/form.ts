@@ -3,11 +3,6 @@ export interface LoginFormType {
   password: string;
 }
 
-export interface SignupFormType {
-  id: string;
-  password: string;
-}
-
 export interface CharacterFormType {
   character: string;
   color: string;

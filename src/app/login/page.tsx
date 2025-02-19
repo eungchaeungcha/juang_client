@@ -5,9 +5,9 @@ import LoginForm from "./LoginForm";
 export default function Page() {
   return (
     <div className="w-full h-full flex-col-center">
-      <div className="relative w-32 h-36">
+      <div className="relative w-1/2 aspect-square mb-8 max-w-[180px]">
         <Image
-          src="/assets/home_icon.png"
+          src="/assets/우리집감나무.png"
           alt="로그인 이미지"
           fill
         />
