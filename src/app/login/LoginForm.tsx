@@ -1,13 +1,30 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { LoginFormType } from "@/types/form";
+import { authApi } from "@/services";
+import { Spinner, customToast } from "@/components";
+import { PostAuthentiateRequest } from "@/types/request";
 
 export default function LoginForm() {
-  const { register, handleSubmit } = useForm<LoginFormType>();
+  const router = useRouter();
 
-  const onSubmit = (data: LoginFormType) => {
-    console.log("fetch login data", data); // TODO: 로그인 비동기 작업
+  const { register, handleSubmit } = useForm<PostAuthentiateRequest>();
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: authApi.postAuthentiate,
+    onSuccess: () => {
+      router.push("/onboarding");
+    },
+    onError: () => {
+      // TODO: 에러 분기 처리 필요 (존재하지 않는 아이디, 네트워크 오류 등등)
+      customToast.error("다시 시도해주세요.");
+    },
+  });
+
+  const onSubmit = (data: PostAuthentiateRequest) => {
+    mutate(data);
   };
 
   return (
@@ -15,7 +32,7 @@ export default function LoginForm() {
       className="w-full flex-col-center px-10 gap-2"
       onSubmit={handleSubmit(onSubmit)}>
       <input
-        {...register("id")}
+        {...register("username")}
         className="styled-input"
         placeholder="아이디"
       />
@@ -26,7 +43,9 @@ export default function LoginForm() {
         type="password"
       />
       <div className="w-full px-2 mt-2">
-        <button className="styled-button-full">로그인</button>
+        <button className="styled-btn--orange w-full">
+          {isPending ? <Spinner /> : "로그인"}
+        </button>
       </div>
     </form>
   );
