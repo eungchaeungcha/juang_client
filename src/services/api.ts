@@ -1,3 +1,5 @@
+const API_BASE_URL = "http://43.201.36.213:8080/api/v1";
+
 export async function apiClient<RequestBody, ResponseBody>(
   endpoint: string,
   options: Omit<RequestInit, "body"> = {},
@@ -5,7 +7,7 @@ export async function apiClient<RequestBody, ResponseBody>(
 ): Promise<ResponseBody> {
   const { headers, ...restOptions } = options;
 
-  const response = await fetch(`${endpoint}`, {
+  const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
     headers: {
       "Content-Type": "application/json",
       ...headers,
