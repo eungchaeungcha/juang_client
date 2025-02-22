@@ -1,6 +1,6 @@
 export const routePathes = {
+  root: "/",
   public: {
-    root: "/",
     login: "/login",
     signup: "/signup",
   },
@@ -15,4 +15,7 @@ export const privateRoutePathes = Object.values(routePathes.private);
 
 export type PublicRoutePath = (typeof publicRoutePathes)[number];
 export type PrivateRoutePath = (typeof privateRoutePathes)[number];
-export type RoutePath = PublicRoutePath | PrivateRoutePath;
+export type RoutePath =
+  | (typeof routePathes)["root"]
+  | PublicRoutePath
+  | PrivateRoutePath;

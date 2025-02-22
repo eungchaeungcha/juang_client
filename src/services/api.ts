@@ -27,9 +27,9 @@ export const api = {
   get: <ResponseBody>(endpoint: string) =>
     apiClient<void, ResponseBody>(endpoint, { method: "GET" }),
 
-  post: <RequestBody, ResponseBody>(endpoint: string, data: RequestBody) =>
+  post: <RequestBody, ResponseBody>(endpoint: string, data?: RequestBody) =>
     apiClient<RequestBody, ResponseBody>(endpoint, { method: "POST" }, data),
 
-  patch: <RequestBody, ResponseBody>(endpoint: string, data: RequestBody) =>
+  patch: <RequestBody, ResponseBody>(endpoint: string, data?: RequestBody) =>
     apiClient<RequestBody, ResponseBody>(endpoint, { method: "PATCH" }, data),
 };

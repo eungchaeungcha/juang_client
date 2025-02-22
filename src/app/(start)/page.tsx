@@ -1,10 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { useMutation } from "@tanstack/react-query";
+import { authApi } from "@/services";
 import { HeaderLayout, customToast } from "@/components";
 
-export default function Home() {
+export default function Page() {
   const notify = () => customToast.success("토스트!");
+
+  const { mutate } = useMutation({
+    mutationFn: authApi.postLogout,
+  });
 
   return (
     <HeaderLayout.Wrapper>
@@ -29,6 +35,13 @@ export default function Home() {
           className="styled-btn--orange w-full"
           onClick={notify}>
           토스트 띄우기
+        </button>
+        <button
+          className="styled-btn--orange w-full"
+          onClick={() => {
+            mutate();
+          }}>
+          로그아웃하기
         </button>
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>

@@ -10,8 +10,10 @@ export const authApi = {
   postRegister: (data: PostRegisterRequestBody) =>
     api.post<PostRegisterRequestBody, void>("auth/register", data),
 
-  postAuthentiate: (data: PostLoginRequestBody) =>
+  postLogin: (data: PostLoginRequestBody) =>
     api.post<PostLoginRequestBody, void>("auth/login", data),
+
+  postLogout: () => api.post("auth/logout"),
 
   getUsernameDuplicate: ({ username }: GetUsernameDuplicateRequestParams) =>
     api.get<GetUsernameDuplicateResponseBody>(`auth/${username}/duplicate`),
