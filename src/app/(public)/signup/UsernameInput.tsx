@@ -1,6 +1,10 @@
+import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useFormContext, useWatch } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
-import { ShowError } from "@/components";
+import { authApi } from "@/services";
+import { ShowError, Spinner } from "@/components";
+import queryKeys from "@/constants/queryKeys";
 import { SignupFormType } from "./SignupSchema";
 
 export default function UsernameInput() {
@@ -12,18 +16,29 @@ export default function UsernameInput() {
     trigger,
   } = useFormContext<SignupFormType>();
 
-  const { usernameUnique } = useWatch<SignupFormType>();
+  const { usernameDuplicated, username = "" } = useWatch<SignupFormType>();
+
+  const { data, refetch, isFetching } = useQuery({
+    queryKey: queryKeys.auth.usernameDuplicate({ username }),
+    queryFn: () => authApi.getUsernameDuplicate({ username }),
+    enabled: false,
+  });
+
+  useEffect(() => {
+    if (data) {
+      const isDuplicated = data.duplicate;
+      setValue("usernameDuplicated", isDuplicated);
+      trigger("usernameDuplicated");
+
+      if (isDuplicated) {
+        setFocus("username");
+      }
+    }
+  }, [data, setFocus, setValue, trigger]);
 
   const handleClickDuplicateCheck = () => {
     if (errors.username) return;
-    const isUnique = true; // 임시값, API 요청 결과로 대체 예정
-
-    setValue("usernameUnique", isUnique);
-    trigger("usernameUnique");
-
-    if (!isUnique) {
-      setFocus("username");
-    }
+    refetch();
   };
 
   return (
@@ -37,21 +52,21 @@ export default function UsernameInput() {
             {...register("username", {
               required: true,
               onBlur: () => {
-                trigger("usernameUnique");
+                trigger("usernameDuplicated");
               },
               onChange: () => {
-                if (usernameUnique !== undefined) {
-                  setValue("usernameUnique", undefined!);
+                if (usernameDuplicated !== undefined) {
+                  setValue("usernameDuplicated", undefined!);
                 }
               },
             })}
           />
-          {!usernameUnique ? (
+          {usernameDuplicated !== false ? (
             <button
               type="button"
               className="text-xs flex-shrink-0 styled-click bg-gray-light p-2 rounded-md"
               onClick={handleClickDuplicateCheck}>
-              중복 확인
+              {isFetching ? <Spinner size={16} /> : "중복 확인"}
             </button>
           ) : (
             <FaCheck className="text-orange-primary" />
@@ -65,7 +80,7 @@ export default function UsernameInput() {
         {!errors.username && (
           <ShowError
             errors={errors}
-            name="usernameUnique"
+            name="usernameDuplicated"
             className="text-xs text-orange-primary px-1"
           />
         )}

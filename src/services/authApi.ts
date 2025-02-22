@@ -1,10 +1,20 @@
-import { PostAuthentiateRequest, PostRegisterRequest } from "@/types/request";
+import {
+  GetUsernameDuplicateRequestParams,
+  GetUsernameDuplicateResponseBody,
+  PostLoginRequestBody,
+  PostRegisterRequestBody,
+} from "@/types/api";
 import { api } from "./api";
 
 export const authApi = {
-  postRegister: (data: PostRegisterRequest) =>
-    api.post<PostRegisterRequest, void>("auth/register", data),
+  postRegister: (data: PostRegisterRequestBody) =>
+    api.post<PostRegisterRequestBody, void>("auth/register", data),
 
-  postAuthentiate: (data: PostAuthentiateRequest) =>
-    api.post<PostAuthentiateRequest, void>("auth/authentiate", data),
+  postLogin: (data: PostLoginRequestBody) =>
+    api.post<PostLoginRequestBody, void>("auth/login", data),
+
+  postLogout: () => api.post("auth/logout"),
+
+  getUsernameDuplicate: ({ username }: GetUsernameDuplicateRequestParams) =>
+    api.get<GetUsernameDuplicateResponseBody>(`auth/${username}/duplicate`),
 };

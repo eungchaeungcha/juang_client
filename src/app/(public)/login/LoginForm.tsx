@@ -1,29 +1,23 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { authApi } from "@/services";
 import { Spinner, customToast } from "@/components";
-import { PostAuthentiateRequest } from "@/types/request";
+import { PostLoginRequestBody } from "@/types/api";
 
 export default function LoginForm() {
-  const router = useRouter();
-
-  const { register, handleSubmit } = useForm<PostAuthentiateRequest>();
+  const { register, handleSubmit } = useForm<PostLoginRequestBody>();
 
   const { mutate, isPending } = useMutation({
-    mutationFn: authApi.postAuthentiate,
-    onSuccess: () => {
-      router.push("/onboarding");
-    },
+    mutationFn: authApi.postLogin,
     onError: () => {
       // TODO: 에러 분기 처리 필요 (존재하지 않는 아이디, 네트워크 오류 등등)
       customToast.error("다시 시도해주세요.");
     },
   });
 
-  const onSubmit = (data: PostAuthentiateRequest) => {
+  const onSubmit = (data: PostLoginRequestBody) => {
     mutate(data);
   };
 

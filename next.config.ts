@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const API_BASE_URL = "http://43.201.36.213:8080/api/v1";
+const API_URL = process.env.JUANG_API_URL;
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -23,11 +23,10 @@ const nextConfig: NextConfig = {
     },
   },
   async rewrites() {
-    console.log("rewrite...");
     return [
       {
-        source: "/:path*",
-        destination: `${API_BASE_URL}/:path*`,
+        source: "/api/:path*",
+        destination: `${API_URL}/:path*`,
       },
     ];
   },

@@ -1,10 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { authApi, usersApi } from "@/services";
 import { HeaderLayout, customToast } from "@/components";
+import queryKeys from "@/constants/queryKeys";
 
-export default function Home() {
+export default function Page() {
   const notify = () => customToast.success("토스트!");
+
+  const { mutate } = useMutation({
+    mutationFn: authApi.postLogout,
+  });
+
+  const { data } = useQuery({
+    queryFn: usersApi.getUser,
+    queryKey: queryKeys.users.me(),
+  });
 
   return (
     <HeaderLayout.Wrapper>
@@ -29,6 +41,13 @@ export default function Home() {
           className="styled-btn--orange w-full"
           onClick={notify}>
           토스트 띄우기
+        </button>
+        <button
+          className="styled-btn--orange w-full"
+          onClick={() => {
+            mutate();
+          }}>
+          로그아웃하기 {data?.id}
         </button>
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>
