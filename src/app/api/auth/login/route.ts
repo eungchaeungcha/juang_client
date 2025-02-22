@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       path: "/",
       httpOnly: true,
       sameSite: "strict",
-      maxAge: 3600,
+      maxAge: 3600 * 24 * 10,
     });
 
     return NextResponse.json(
