@@ -1,5 +1,9 @@
-// Type Name
-// [Method][Domain]Request[Body/Params]
+/**
+ * Type Name
+ * [Method][Domain]Request[Body/Params]
+ */
+
+// Auth Api
 
 export interface PostRegisterRequestBody {
   username: string;
@@ -17,4 +21,14 @@ export interface GetUsernameDuplicateRequestParams {
 
 export interface GetUsernameDuplicateResponseBody {
   duplicate: boolean;
+}
+
+// Users Api
+
+export interface GetUsersMeResponseBody {
+  id: number;
+  username: string;
+  nickname: string | null;
+  characterId: number | null;
+  familyId: number | null;
 }

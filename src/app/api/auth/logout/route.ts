@@ -1,10 +1,9 @@
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 const TOKEN_KEY = process.env.AUTH_TOKEN_KEY ?? "";
 
-export async function POST(request: NextRequest) {
-  console.log(request);
+export async function POST() {
   try {
     const cookieStore = await cookies();
     cookieStore.delete(TOKEN_KEY);

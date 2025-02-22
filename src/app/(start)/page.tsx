@@ -1,15 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useMutation } from "@tanstack/react-query";
-import { authApi } from "@/services";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { authApi, usersApi } from "@/services";
 import { HeaderLayout, customToast } from "@/components";
+import queryKeys from "@/constants/queryKeys";
 
 export default function Page() {
   const notify = () => customToast.success("토스트!");
 
   const { mutate } = useMutation({
     mutationFn: authApi.postLogout,
+  });
+
+  const { data } = useQuery({
+    queryFn: usersApi.getUser,
+    queryKey: queryKeys.users.me(),
   });
 
   return (
@@ -41,7 +47,7 @@ export default function Page() {
           onClick={() => {
             mutate();
           }}>
-          로그아웃하기
+          로그아웃하기 {data?.id}
         </button>
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>

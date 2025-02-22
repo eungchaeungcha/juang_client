@@ -6,8 +6,14 @@ const auth = {
     [...auth.default, params] as const,
 };
 
+const users = {
+  default: ["users"] as const,
+  me: () => [...users.default, "me"] as const,
+};
+
 const queryKeys = {
   auth,
+  users,
 };
 
 export default queryKeys;
