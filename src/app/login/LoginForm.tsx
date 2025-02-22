@@ -5,12 +5,12 @@ import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { authApi } from "@/services";
 import { Spinner, customToast } from "@/components";
-import { PostAuthenticateRequestBody } from "@/types/api";
+import { PostLoginRequestBody } from "@/types/api";
 
 export default function LoginForm() {
   const router = useRouter();
 
-  const { register, handleSubmit } = useForm<PostAuthenticateRequestBody>();
+  const { register, handleSubmit } = useForm<PostLoginRequestBody>();
 
   const { mutate, isPending } = useMutation({
     mutationFn: authApi.postAuthentiate,
@@ -23,7 +23,7 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit = (data: PostAuthenticateRequestBody) => {
+  const onSubmit = (data: PostLoginRequestBody) => {
     mutate(data);
   };
 

@@ -6,7 +6,7 @@ export interface PostRegisterRequestBody {
   password: string;
 }
 
-export interface PostAuthenticateRequestBody {
+export interface PostLoginRequestBody {
   username: string;
   password: string;
 }

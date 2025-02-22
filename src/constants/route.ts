@@ -1,8 +1,18 @@
 export const routePathes = {
-  public: ["/", " /login", "/signup"],
-  private: ["/main", "/onboarding"],
+  public: {
+    root: "/",
+    login: "/login",
+    signup: "/signup",
+  },
+  private: {
+    main: "/main",
+    onboarding: "/onboarding",
+  },
 } as const;
 
-export type RoutePath = (typeof routePathes)["private" | "public"][number];
-export type PublicRoutePath = (typeof routePathes)["public"][number];
-export type PrivateRoutePath = (typeof routePathes)["private"][number];
+export const publicRoutePathes = Object.values(routePathes.public);
+export const privateRoutePathes = Object.values(routePathes.private);
+
+export type PublicRoutePath = (typeof publicRoutePathes)[number];
+export type PrivateRoutePath = (typeof privateRoutePathes)[number];
+export type RoutePath = PublicRoutePath | PrivateRoutePath;
