@@ -26,7 +26,6 @@ export async function POST(request: NextRequest) {
 
     const data = await response.json();
     const token = data.token;
-    console.log(token);
 
     cookieStore.set(TOKEN_KEY, token, {
       path: "/",
