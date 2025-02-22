@@ -8,7 +8,7 @@ const auth = {
 
 const users = {
   default: ["users"] as const,
-  me: () => [...users.default, "me"] as const,
+  me: (userId: number) => [...users.default, userId] as const,
 };
 
 const queryKeys = {

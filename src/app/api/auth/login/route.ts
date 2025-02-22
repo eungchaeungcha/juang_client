@@ -8,6 +8,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
+    // authenticate
+
     const response = await fetch(`${API_URL}/auth/authenticate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -34,10 +36,26 @@ export async function POST(request: NextRequest) {
       maxAge: 3600 * 24 * 10,
     });
 
-    return NextResponse.json(
-      { message: "Login Success" },
-      { status: response.status },
-    );
+    // get user data
+
+    const userResponse = await fetch(`${API_URL}/users/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!userResponse.ok) {
+      return NextResponse.json(
+        { message: "Failed to fetch user data" },
+        { status: userResponse.status },
+      );
+    }
+
+    const userData = await userResponse.json();
+
+    return NextResponse.json(userData, { status: response.status });
   } catch (error: unknown) {
     return NextResponse.json(
       { message: String(error) || "Internal Server Error" },

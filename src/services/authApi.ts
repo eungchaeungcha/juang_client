@@ -1,6 +1,7 @@
 import {
   GetUsernameDuplicateRequestParams,
   GetUsernameDuplicateResponseBody,
+  GetUsersMeResponseBody,
   PostLoginRequestBody,
   PostRegisterRequestBody,
 } from "@/types/api";
@@ -11,7 +12,7 @@ export const authApi = {
     api.post<PostRegisterRequestBody, void>("auth/register", data),
 
   postLogin: (data: PostLoginRequestBody) =>
-    api.post<PostLoginRequestBody, void>("auth/login", data),
+    api.post<PostLoginRequestBody, GetUsersMeResponseBody>("auth/login", data),
 
   postLogout: () => api.post("auth/logout"),
 

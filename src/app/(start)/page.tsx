@@ -1,22 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { authApi, usersApi } from "@/services";
 import { HeaderLayout, customToast } from "@/components";
+import { useHandleAuth } from "@/hooks/useHandleAuth";
 import queryKeys from "@/constants/queryKeys";
+import { useUserDataStore } from "@/store/userDataStore";
 
 export default function Page() {
   const notify = () => customToast.success("토스트!");
+  const { handleLogout } = useHandleAuth();
+  const { userData, setUserData } = useUserDataStore();
 
   const { mutate } = useMutation({
     mutationFn: authApi.postLogout,
+    onSuccess: handleLogout,
   });
 
   const { data } = useQuery({
     queryFn: usersApi.getUser,
-    queryKey: queryKeys.users.me(),
+    queryKey: queryKeys.users.me(userData?.id ?? 0),
   });
+
+  useEffect(() => {
+    if (data) {
+      setUserData(data);
+    }
+  }, [data, setUserData, userData]);
 
   return (
     <HeaderLayout.Wrapper>
@@ -47,7 +59,7 @@ export default function Page() {
           onClick={() => {
             mutate();
           }}>
-          로그아웃하기 {data?.id}
+          로그아웃하기 {userData?.id}
         </button>
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import FixedInput from "@/components/FixedInput";
-import useValidateParams from "@/hooks/useValidateParams";
+import { useValidateParams } from "@/hooks/useValidateParams";
 
 const variablesByMode = {
   create: {
