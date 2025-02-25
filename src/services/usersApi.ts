@@ -1,6 +1,6 @@
 import { GetUsersMeResponseBody } from "@/types/api";
-import { api } from "./api";
+import { apiServer } from "@/libs/api";
 
 export const usersApi = {
-  getUser: () => api.get<GetUsersMeResponseBody>("users/me"),
+  getUser: () => apiServer.get<GetUsersMeResponseBody>("users/me"),
 };

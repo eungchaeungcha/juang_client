@@ -5,17 +5,22 @@ import {
   PostLoginRequestBody,
   PostRegisterRequestBody,
 } from "@/types/api";
-import { api } from "./api";
+import { apiClient } from "@/libs/api";
 
 export const authApi = {
   postRegister: (data: PostRegisterRequestBody) =>
-    api.post<PostRegisterRequestBody, void>("auth/register", data),
+    apiClient.post<PostRegisterRequestBody, void>("auth/register", data),
 
   postLogin: (data: PostLoginRequestBody) =>
-    api.post<PostLoginRequestBody, GetUsersMeResponseBody>("auth/login", data),
+    apiClient.post<PostLoginRequestBody, GetUsersMeResponseBody>(
+      "auth/login",
+      data,
+    ),
 
-  postLogout: () => api.post("auth/logout"),
+  postLogout: () => apiClient.post("auth/logout"),
 
   getUsernameDuplicate: ({ username }: GetUsernameDuplicateRequestParams) =>
-    api.get<GetUsernameDuplicateResponseBody>(`auth/${username}/duplicate`),
+    apiClient.get<GetUsernameDuplicateResponseBody>(
+      `auth/${username}/duplicate`,
+    ),
 };
