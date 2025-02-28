@@ -64,7 +64,6 @@ export default class Api {
   }
 
   beforeRequest(beforeRequestFn: BeforeRequestFn) {
-    console.log("set before request");
     this.beforeRequestFn = beforeRequestFn;
     return this;
   }
