@@ -1,13 +1,18 @@
 import { useFormContext, useWatch } from "react-hook-form";
-import { ColorSelect } from "@/components";
+import { ColorSelect, Spinner } from "@/components";
 import { CharacterFormType } from "@/schemas/CharacterSchema";
 
 interface ColorFormProps {
   onPrev: VoidFunction;
   onNext: VoidFunction;
+  isLoading?: boolean;
 }
 
-export default function ColorForm({ onPrev, onNext }: ColorFormProps) {
+export default function ColorForm({
+  onPrev,
+  onNext,
+  isLoading,
+}: ColorFormProps) {
   const { setValue } = useFormContext<CharacterFormType>();
   const { color } = useWatch<CharacterFormType>();
 
@@ -28,8 +33,8 @@ export default function ColorForm({ onPrev, onNext }: ColorFormProps) {
         <button
           className="styled-btn--orange w-full"
           onClick={onNext}
-          disabled={!color}>
-          다음
+          disabled={!color || isLoading}>
+          {isLoading ? <Spinner /> : "다음"}
         </button>
       </div>
     </>

@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import clsx from "clsx";
 import "swiper/css";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import CustomCharacter from "./CustomCharacter";
 import { CharacterName, CharacterNameEnum } from "@/schemas/CharacterSchema";
+import CustomCharacter from "./CustomCharacter";
 
 interface CharactorSelectProps {
   value?: CharacterNameEnum;

@@ -34,7 +34,7 @@ export interface GetUserResponseBody {
 }
 
 export interface PatchUserCharacterRequestParams {
-  characterId: string;
+  characterId: number;
 }
 
 export interface PatchUserNicknameRequestBody {
@@ -47,13 +47,20 @@ export interface PatchUserFamiliesRequestBody {
 
 // Characters Api
 
-export interface GetCharacterIdRequestParams {
+export interface GetCharacterByDataRequestParams {
   name: string;
   color: string;
 }
 
-export interface GetCharacterResourceRequestParams {
-  characterId: string;
+export interface GetCharacterByIdRequestParams {
+  characterId: number;
+}
+
+export interface GetCharacterResponseBody {
+  id: number;
+  name: string;
+  color: string;
+  link: string;
 }
 
 // Families Api

@@ -1,10 +1,10 @@
 import { ComponentPropsWithRef } from "react";
 import clsx from "clsx";
-import { CHARACTER_URL } from "@/constants/character";
 import {
   CharacterColorEnum,
   CharacterNameEnum,
 } from "@/schemas/CharacterSchema";
+import { CHARACTER_URL } from "@/constants/character";
 
 interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
   name?: CharacterNameEnum;

@@ -1,12 +1,19 @@
-import { usersApi } from "@/services";
-import UserDataActionProvider from "@/providers/UserDataActionProvider";
+import LogoutButton from "@/components/LogoutButton";
 
-export default async function Page() {
-  const userData = await usersApi.getUser();
+// export default async function Page() {
+//   const userData = await usersApi.getUser();
 
+//   return (
+//     <UserDataActionProvider userData={userData}>
+//       loading...
+//     </UserDataActionProvider>
+//   );
+// }
+
+export default function Page() {
   return (
-    <UserDataActionProvider userData={userData}>
-      loading...
-    </UserDataActionProvider>
+    <div>
+      <LogoutButton />
+    </div>
   );
 }

@@ -1,33 +1,43 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { FormProvider, useForm } from "react-hook-form";
-import { charactersApi } from "@/services/charactersApi";
+import { charactersApi, usersApi } from "@/services";
+import { CharacterFormType } from "@/schemas/CharacterSchema";
 import queryKeys from "@/constants/queryKeys";
 import CharacterForm from "./CharacterForm";
 import CharacterPreview from "./CharacterPreview";
 import ColorForm from "./ColorForm";
-import { CharacterFormType } from "@/schemas/CharacterSchema";
 
 export default function Page() {
   const formMethods = useForm<CharacterFormType>();
+
   const [currentForm, setCurrentForm] =
     useState<keyof CharacterFormType>("name");
 
-  const handleSubmit = () => {
-    console.log(formMethods.getValues());
-  };
+  const { name, color } = formMethods.watch();
+
+  const router = useRouter();
 
   const { data: characterId } = useQuery({
-    queryFn: () => charactersApi.getCharacterId(formMethods.watch()),
-    queryKey: queryKeys.characters.id(formMethods.watch()),
-    enabled: Boolean(formMethods.watch("color") && formMethods.watch("name")),
+    queryFn: () => charactersApi.getCharacterByData({ name, color }),
+    queryKey: queryKeys.characters.id({ name, color }),
+    select: ({ id }) => id,
+    enabled: Boolean(name && color),
   });
 
-  useEffect(() => {
-    console.log(characterId);
-  }, [characterId]);
+  const { mutate: patchCharacter, isPending } = useMutation({
+    mutationFn: usersApi.patchUserCharacter,
+    onSuccess: router.refresh,
+  });
+
+  const handleSubmit = () => {
+    if (characterId) {
+      patchCharacter({ characterId });
+    }
+  };
 
   return (
     <FormProvider {...formMethods}>
@@ -39,6 +49,7 @@ export default function Page() {
         <ColorForm
           onPrev={() => setCurrentForm("name")}
           onNext={handleSubmit}
+          isLoading={isPending}
         />
       )}
     </FormProvider>
