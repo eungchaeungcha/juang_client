@@ -1,4 +1,4 @@
-import Api from "./Api";
+import Api from "@/libs/Api";
 
 const JUANG_API_URL = process.env.JUANG_API_URL ?? "";
 

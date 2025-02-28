@@ -1,39 +1,33 @@
 "use client";
 
-import { useFormContext, useWatch } from "react-hook-form";
-import { CharacterSelect, LinkButton } from "@/components";
-import { CharacterFormType } from "@/types/form";
-import CharacterPreview from "../components/CharacterPreview";
+import { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import CharacterForm from "./CharacterForm";
+import CharacterPreview from "./CharacterPreview";
+import ColorForm from "./ColorForm";
+import { CharacterFormType } from "@/schemas/CharacterSchema";
 
 export default function Page() {
-  const { setValue } = useFormContext<CharacterFormType>();
-  const characterValues = useWatch<CharacterFormType>();
+  const formMethods = useForm<CharacterFormType>();
+  const [currentForm, setCurrentForm] =
+    useState<keyof CharacterFormType>("name");
+
+  const handleSubmit = () => {
+    console.log(formMethods.getValues());
+  };
 
   return (
-    <>
-      <CharacterPreview
-        {...characterValues}
-        onRandomize={({ character, color }) => {
-          setValue("character", character);
-          setValue("color", color);
-        }}
-      />
-      <div className="w-full">
-        <CharacterSelect
-          value={characterValues.character}
-          onChange={(value) => {
-            setValue("character", value);
-          }}
+    <FormProvider {...formMethods}>
+      <CharacterPreview />
+      {currentForm === "name" && (
+        <CharacterForm onNext={() => setCurrentForm("color")} />
+      )}
+      {currentForm === "color" && (
+        <ColorForm
+          onPrev={() => setCurrentForm("name")}
+          onNext={handleSubmit}
         />
-      </div>
-      <div className="flex-row-center w-full gap-4 p-8 h-24 text-lg">
-        <LinkButton
-          href="color"
-          className="styled-btn--orange w-full"
-          disabled={!characterValues.character}>
-          다음
-        </LinkButton>
-      </div>
-    </>
+      )}
+    </FormProvider>
   );
 }

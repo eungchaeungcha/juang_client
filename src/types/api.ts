@@ -32,3 +32,14 @@ export interface GetUsersMeResponseBody {
   characterId: number | null;
   familyId: number | null;
 }
+
+// Characters Api
+
+export interface GetCharacterIdRequestParams {
+  name: string;
+  color: string;
+}
+
+export interface GetCharacterRequestParams {
+  characterId: string;
+}

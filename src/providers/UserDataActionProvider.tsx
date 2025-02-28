@@ -27,7 +27,7 @@ const getRedirectPath = ({
     return onboardingPath + "/nickname";
   }
   if (!familyId) {
-    return onboardingPath + "/join";
+    return onboardingPath + "/family";
   }
   return routePathes.private.main;
 };

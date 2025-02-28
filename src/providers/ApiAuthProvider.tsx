@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
-import { BeforeRequestFn, apiClient, apiServer } from "@/libs/api";
+import { BeforeRequestFn } from "@/libs/Api";
+import { apiClient, apiServer } from "@/services/api";
 
 const AUTH_TOKEN_KEY = process.env.AUTH_TOKEN_KEY ?? "";
 

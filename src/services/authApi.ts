@@ -1,4 +1,3 @@
-import { apiClient } from "@/libs/api";
 import {
   GetUsernameDuplicateRequestParams,
   GetUsernameDuplicateResponseBody,
@@ -6,6 +5,7 @@ import {
   PostLoginRequestBody,
   PostRegisterRequestBody,
 } from "@/types/api";
+import { apiClient } from "./api";
 
 export const authApi = {
   postRegister: (data: PostRegisterRequestBody) =>
