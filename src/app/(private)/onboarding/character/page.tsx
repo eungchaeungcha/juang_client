@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { FormProvider, useForm } from "react-hook-form";
+import { charactersApi } from "@/services/charactersApi";
+import queryKeys from "@/constants/queryKeys";
 import CharacterForm from "./CharacterForm";
 import CharacterPreview from "./CharacterPreview";
 import ColorForm from "./ColorForm";
@@ -15,6 +18,16 @@ export default function Page() {
   const handleSubmit = () => {
     console.log(formMethods.getValues());
   };
+
+  const { data: characterId } = useQuery({
+    queryFn: () => charactersApi.getCharacterId(formMethods.watch()),
+    queryKey: queryKeys.characters.id(formMethods.watch()),
+    enabled: Boolean(formMethods.watch("color") && formMethods.watch("name")),
+  });
+
+  useEffect(() => {
+    console.log(characterId);
+  }, [characterId]);
 
   return (
     <FormProvider {...formMethods}>

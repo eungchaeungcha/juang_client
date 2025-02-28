@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const authToken = request.cookies.get(TOKEN_KEY)?.value;
 
-  if (pathname.startsWith("/api")) {
+  if (pathname.startsWith("/api") && authToken) {
     return NextResponse.next({
       headers: {
         Authorization: `Bearer ${authToken}`,

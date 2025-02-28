@@ -1,16 +1,18 @@
 import {
   GetCharacterIdRequestParams,
-  GetCharacterRequestParams,
+  GetCharacterResourceRequestParams,
 } from "@/types/api";
 import { apiClient } from "./api";
 
 export const charactersApi = {
   getCharacterId: ({ name, color }: GetCharacterIdRequestParams) =>
     apiClient.get<string>(
-      `characters?name=${name}&color=${color.replace("#", "%23")}`,
+      `characters?name=${name}&color=${encodeURIComponent(color)}`,
     ),
 
-  getCharacter: ({ characterId }: GetCharacterRequestParams) => {
+  getCharacterResource: ({
+    characterId,
+  }: GetCharacterResourceRequestParams) => {
     apiClient.get(`characters/${characterId}`);
   },
 };

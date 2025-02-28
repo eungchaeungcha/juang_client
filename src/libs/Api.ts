@@ -89,7 +89,7 @@ export default class Api {
   // PATCH
   patch<RequestBody, ResponseBody>(
     endpoint: string,
-    data: RequestBody,
+    data?: RequestBody,
   ): Promise<ResponseBody> {
     return this.request(endpoint, { method: "PATCH" }, data);
   }

@@ -2,10 +2,13 @@
 
 import { useMutation } from "@tanstack/react-query";
 import { authApi } from "@/services";
+import { useHandleAuth } from "@/hooks/useHandleAuth";
 
 export default function LogoutButton() {
+  const { handleLogout } = useHandleAuth();
   const { mutate: logout } = useMutation({
     mutationFn: authApi.postLogout,
+    onSuccess: handleLogout,
   });
 
   return (
