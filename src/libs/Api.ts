@@ -74,23 +74,28 @@ export default class Api {
   }
 
   // GET
-  get<ResponseBody>(endpoint: string): Promise<ResponseBody> {
-    return this.request(endpoint, { method: "GET" });
+  get<ResponseBody>(
+    endpoint: string,
+    configs?: Omit<ApiRequectConfigs, "method">,
+  ): Promise<ResponseBody> {
+    return this.request(endpoint, { method: "GET", ...configs });
   }
 
   // POST
   post<RequestBody, ResponseBody>(
     endpoint: string,
     data?: RequestBody,
+    configs?: Omit<ApiRequectConfigs, "method">,
   ): Promise<ResponseBody> {
-    return this.request(endpoint, { method: "POST" }, data);
+    return this.request(endpoint, { method: "POST", ...configs }, data);
   }
 
   // PATCH
   patch<RequestBody, ResponseBody>(
     endpoint: string,
     data?: RequestBody,
+    configs?: Omit<ApiRequectConfigs, "method">,
   ): Promise<ResponseBody> {
-    return this.request(endpoint, { method: "PATCH" }, data);
+    return this.request(endpoint, { method: "PATCH", ...configs }, data);
   }
 }

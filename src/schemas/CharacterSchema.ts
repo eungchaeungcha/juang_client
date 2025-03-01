@@ -24,8 +24,8 @@ export const CharacterColor = z.enum([
   "#b8b3c1",
 ]);
 
-export type CharacterNameEnum = z.infer<typeof CharacterName>;
-export type CharacterColorEnum = z.infer<typeof CharacterColor>;
+export type CharacterNameType = z.infer<typeof CharacterName>;
+export type CharacterColorType = z.infer<typeof CharacterColor>;
 
 export const CharacterSchema = z.object({
   name: CharacterName,

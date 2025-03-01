@@ -17,9 +17,9 @@ const users = {
 
 const characters = {
   default: ["characters"] as const,
-  id: ({ name, color }: GetCharacterByDataRequestParams) =>
+  byData: ({ name, color }: GetCharacterByDataRequestParams) =>
     [...characters.default, name, color] as const,
-  resource: ({ characterId }: GetCharacterByIdRequestParams) =>
+  byId: ({ characterId }: GetCharacterByIdRequestParams) =>
     [...characters.default, characterId] as const,
 };
 

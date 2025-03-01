@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
-  privateRoutePathes,
-  publicRoutePathes,
-  routePathes,
+  privateroutePaths,
+  publicroutePaths,
+  routePaths,
 } from "@/constants/route";
 
 const TOKEN_KEY = process.env.AUTH_TOKEN_KEY ?? "";
@@ -20,22 +20,20 @@ export function middleware(request: NextRequest) {
     });
   }
 
-  const isRootPage = pathname === routePathes.root;
-  const isPrivatePage = privateRoutePathes.some((path) =>
+  const isRootPage = pathname === routePaths.root;
+  const isPrivatePage = privateroutePaths.some((path) =>
     pathname.startsWith(path),
   );
-  const isPublicPage = publicRoutePathes.some((path) =>
+  const isPublicPage = publicroutePaths.some((path) =>
     pathname.startsWith(path),
   );
   if ((isRootPage || isPrivatePage) && !authToken) {
     // root page, private page 에서 로그인 안된 상태
-    return NextResponse.redirect(
-      new URL(routePathes.public.login, request.url),
-    );
+    return NextResponse.redirect(new URL(routePaths.public.login, request.url));
   }
   if (isPublicPage && authToken) {
     // public page 에서 로그인 된 상태
-    return NextResponse.redirect(new URL(routePathes.root, request.url));
+    return NextResponse.redirect(new URL(routePaths.root, request.url));
   }
 
   return response;

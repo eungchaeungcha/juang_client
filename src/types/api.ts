@@ -28,7 +28,7 @@ export interface GetUsernameDuplicateResponseBody {
 export interface GetUserResponseBody {
   id: number;
   username: string;
-  nickname: string | null;
+  nickName: string | null;
   characterId: number | null;
   familyId: number | null;
 }
@@ -37,12 +37,20 @@ export interface PatchUserCharacterRequestParams {
   characterId: number;
 }
 
-export interface PatchUserNicknameRequestBody {
-  nickname: string;
+export interface PatchUserNickNameRequestBody {
+  nickName: string;
 }
 
 export interface PatchUserFamiliesRequestBody {
   code: string;
+}
+
+export interface PatchUserResponseBody {
+  id: number;
+  username: string;
+  nickName: string | null;
+  characterId: number | null;
+  familyId: number | null;
 }
 
 // Characters Api

@@ -1,9 +1,9 @@
 import { create } from "zustand";
-import { GetUsersMeResponseBody } from "@/types/api";
+import { GetUserResponseBody } from "@/types/api";
 
 interface UserDataStore {
-  userData: GetUsersMeResponseBody | null;
-  setUserData: (userData: GetUsersMeResponseBody | null) => void;
+  userData: GetUserResponseBody | null;
+  setUserData: (userData: GetUserResponseBody | null) => void;
   clearUserData: VoidFunction;
 }
 

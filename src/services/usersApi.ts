@@ -2,7 +2,8 @@ import {
   GetUserResponseBody,
   PatchUserCharacterRequestParams,
   PatchUserFamiliesRequestBody,
-  PatchUserNicknameRequestBody,
+  PatchUserNickNameRequestBody,
+  PatchUserResponseBody,
 } from "@/types/api";
 import { apiClient, apiServer } from "./api";
 
@@ -12,11 +13,19 @@ export const usersApi = {
   getUserClient: () => apiClient.get<GetUserResponseBody>("users/me"),
 
   patchUserCharacter: ({ characterId }: PatchUserCharacterRequestParams) =>
-    apiClient.patch(`users/characters/${characterId}`),
+    apiClient.patch<PatchUserCharacterRequestParams, PatchUserResponseBody>(
+      `users/characters/${characterId}`,
+    ),
 
-  patchUserNickname: (data: PatchUserNicknameRequestBody) =>
-    apiClient.patch("users/nick-name", data),
+  patchUserNickname: (data: PatchUserNickNameRequestBody) =>
+    apiClient.patch<PatchUserNickNameRequestBody, PatchUserResponseBody>(
+      "users/nick-name",
+      data,
+    ),
 
   patchUserFamily: (data: PatchUserFamiliesRequestBody) =>
-    apiClient.patch("users/families", data),
+    apiClient.patch<PatchUserFamiliesRequestBody, PatchUserResponseBody>(
+      "users/families",
+      data,
+    ),
 };

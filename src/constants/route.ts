@@ -1,4 +1,4 @@
-export const routePathes = {
+export const routePaths = {
   root: "/",
   public: {
     login: "/login",
@@ -7,15 +7,24 @@ export const routePathes = {
   private: {
     main: "/main",
     onboarding: "/onboarding",
+    onboardingCharacter: "/onboarding/character",
+    onboardingNickname: "/onboarding/nickname",
+    onboardingFamily: "/onboarding/family",
+  },
+  withQueryParams: {
+    onboardingCharacterName: () =>
+      routePaths.private.onboardingCharacter + "?target=name",
+    onboardingCharacterColor: () =>
+      routePaths.private.onboardingCharacter + "?target=color",
   },
 } as const;
 
-export const publicRoutePathes = Object.values(routePathes.public);
-export const privateRoutePathes = Object.values(routePathes.private);
+export const publicroutePaths = Object.values(routePaths.public);
+export const privateroutePaths = Object.values(routePaths.private);
 
-export type PublicRoutePath = (typeof publicRoutePathes)[number];
-export type PrivateRoutePath = (typeof privateRoutePathes)[number];
+export type PublicRoutePath = (typeof publicroutePaths)[number];
+export type PrivateRoutePath = (typeof privateroutePaths)[number];
 export type RoutePath =
-  | (typeof routePathes)["root"]
+  | (typeof routePaths)["root"]
   | PublicRoutePath
   | PrivateRoutePath;
