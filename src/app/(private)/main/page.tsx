@@ -24,7 +24,7 @@ export default function Page() {
         {/* 캐릭터 */}
         <CustomCharacter
           className="absolute left-0 right-0 bottom-0 m-auto h-[55%]"
-          charId="character1"
+          name="gam1"
         />
         {/* 유틸 버튼 */}
         <div className="absolute left-0 right-0 w-[calc(100%-6rem)] p-3 m-auto flex justify-between">

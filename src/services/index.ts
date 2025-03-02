@@ -1,2 +1,3 @@
-export * from "./authApi";
-export * from "./usersApi";
+export * from "./auth";
+export * from "./users";
+export * from "./characters";

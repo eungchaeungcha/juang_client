@@ -1,35 +1,6 @@
-export async function apiClient<RequestBody, ResponseBody>(
-  endpoint: string,
-  options: Omit<RequestInit, "body"> = {},
-  data?: RequestBody,
-): Promise<ResponseBody> {
-  const { headers, ...restOptions } = options;
+import Api from "@/libs/Api";
 
-  const response = await fetch(`api/${endpoint}`, {
-    headers: {
-      "Content-Type": "application/json",
-      ...headers,
-    },
-    cache: "no-store",
-    ...(data !== undefined ? { body: JSON.stringify(data) } : {}),
-    ...restOptions,
-  });
+const JUANG_API_URL = process.env.JUANG_API_URL ?? "";
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.error || "API 요청 실패");
-  }
-
-  return response.json();
-}
-
-export const api = {
-  get: <ResponseBody>(endpoint: string) =>
-    apiClient<void, ResponseBody>(endpoint, { method: "GET" }),
-
-  post: <RequestBody, ResponseBody>(endpoint: string, data?: RequestBody) =>
-    apiClient<RequestBody, ResponseBody>(endpoint, { method: "POST" }, data),
-
-  patch: <RequestBody, ResponseBody>(endpoint: string, data?: RequestBody) =>
-    apiClient<RequestBody, ResponseBody>(endpoint, { method: "PATCH" }, data),
-};
+export const apiClient = Api.create("/api");
+export const apiServer = Api.create(JUANG_API_URL);

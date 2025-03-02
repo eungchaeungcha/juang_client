@@ -4,8 +4,8 @@ import { useFormContext, useWatch } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
 import { authApi } from "@/services";
 import { ShowError, Spinner } from "@/components";
+import { SignupFormType } from "@/schemas/SignupSchema";
 import queryKeys from "@/constants/queryKeys";
-import { SignupFormType } from "./SignupSchema";
 
 export default function UsernameInput() {
   const {

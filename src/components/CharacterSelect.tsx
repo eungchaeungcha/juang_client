@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import clsx from "clsx";
 import "swiper/css";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { CharacterName, CharacterNameType } from "@/schemas/CharacterSchema";
 import CustomCharacter from "./CustomCharacter";
 
 interface CharactorSelectProps {
-  value?: string;
-  onChange?: (id: string) => void;
+  value?: CharacterNameType;
+  onChange?: (name: CharacterNameType) => void;
 }
 
 interface CharactorWrapperProps {
@@ -52,24 +53,24 @@ export default function CharactorSelect({
       centeredSlides
       loop>
       {Array.from({ length: 9 }).map((_, i) => {
-        const charId = `character${i + 1}`;
+        const name = CharacterName.options[i];
         return (
           <SwiperSlide
-            key={charId}
+            key={name}
             className="max-w-28"
             onClick={() => {
-              onChange?.(charId);
+              onChange?.(name);
             }}>
             <CharactorWrapper
-              isSelected={charId === value}
+              isSelected={name === value}
               slideIndex={i}>
               <CustomCharacter
-                charId={charId}
+                name={name}
                 className={clsx(
                   "rounded-full w-32 h-32 p-3 cursor-pointer flex-shrink-0 flex-grow",
                   {
-                    "opacity-40 ": value && value !== charId,
-                    "opacity-100": value === charId || !value,
+                    "opacity-40 ": value && value !== name,
+                    "opacity-100": value === name || !value,
                   },
                 )}
               />

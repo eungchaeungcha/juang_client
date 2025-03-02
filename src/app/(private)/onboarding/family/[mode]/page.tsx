@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import FixedInput from "@/components/FixedInput";
-import useValidateParams from "@/hooks/useValidateParams";
+import { FixedInput } from "@/components";
+import { useValidateParams } from "@/hooks/useValidateParams";
 
 const variablesByMode = {
   create: {
@@ -26,7 +26,7 @@ const variablesByMode = {
 export default function Page() {
   const { mode } = useValidateParams<{ mode: "create" | "code" }>({
     validator: ({ mode }) => ["create", "code"].includes(mode),
-    redirect: "/onboarding/join",
+    redirect: "/onboarding/family",
   });
 
   return (

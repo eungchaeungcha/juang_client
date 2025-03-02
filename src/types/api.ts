@@ -25,10 +25,54 @@ export interface GetUsernameDuplicateResponseBody {
 
 // Users Api
 
-export interface GetUsersMeResponseBody {
+export interface GetUserResponseBody {
   id: number;
   username: string;
-  nickname: string | null;
+  nickName: string | null;
   characterId: number | null;
   familyId: number | null;
+}
+
+export interface PatchUserCharacterRequestParams {
+  characterId: number;
+}
+
+export interface PatchUserNickNameRequestBody {
+  nickName: string;
+}
+
+export interface PatchUserFamiliesRequestBody {
+  code: string;
+}
+
+export interface PatchUserResponseBody {
+  id: number;
+  username: string;
+  nickName: string | null;
+  characterId: number | null;
+  familyId: number | null;
+}
+
+// Characters Api
+
+export interface GetCharacterByDataRequestParams {
+  name: string;
+  color: string;
+}
+
+export interface GetCharacterByIdRequestParams {
+  characterId: number;
+}
+
+export interface GetCharacterResponseBody {
+  id: number;
+  name: string;
+  color: string;
+  link: string;
+}
+
+// Families Api
+
+export interface PostFamilyRequestBody {
+  name: string;
 }

@@ -1,17 +1,17 @@
 "use client";
 
 import clsx from "clsx";
-import { CHARACTER_COLORS } from "@/constants/character";
+import { CharacterColor, CharacterColorType } from "@/schemas/CharacterSchema";
 
 interface ColorSelectProps {
-  value?: string;
-  onChange?: (value: string) => void;
+  value?: CharacterColorType;
+  onChange?: (value: CharacterColorType) => void;
 }
 
 export default function ColorSelect({ value, onChange }: ColorSelectProps) {
   return (
     <div className="grid grid-cols-5 gap-2 px-4">
-      {Object.entries(CHARACTER_COLORS).map(([name, code]) => (
+      {Object.entries(CharacterColor.Values).map(([name, code]) => (
         <div
           key={name}
           className={clsx(

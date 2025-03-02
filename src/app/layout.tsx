@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
+import { cookies } from "next/headers";
+import { apiServer } from "@/services/api";
 import TanStackQueryProvider from "@/providers/TanStackQueryProvider";
 import { CustomToastContainer } from "@/components/CustomToast";
-import "./styles/globals.css";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Juang App",
@@ -31,3 +33,18 @@ export default function RootLayout({
     </html>
   );
 }
+
+const AUTH_TOKEN_KEY = process.env.AUTH_TOKEN_KEY ?? "";
+apiServer.beforeRequest(async (configs) => {
+  const cookie = await cookies();
+  const token = cookie.get(AUTH_TOKEN_KEY)?.value;
+  const requestHeaders = new Headers(configs.headers);
+
+  if (token) {
+    requestHeaders.set("Authorization", `Bearer ${token}`);
+  } else {
+    requestHeaders.delete("Authorization");
+    cookie.delete(AUTH_TOKEN_KEY);
+  }
+  return { ...configs, headers: requestHeaders };
+});

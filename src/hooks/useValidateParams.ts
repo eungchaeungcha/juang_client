@@ -7,7 +7,7 @@ interface ValidateParamsOption<P> {
   redirect?: string;
 }
 
-const useValidateParams = <P extends Params>({
+export const useValidateParams = <P extends Params>({
   validator,
   redirect,
 }: ValidateParamsOption<P>) => {
@@ -22,5 +22,3 @@ const useValidateParams = <P extends Params>({
 
   return params;
 };
-
-export default useValidateParams;

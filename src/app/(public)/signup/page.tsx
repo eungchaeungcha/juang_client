@@ -7,9 +7,9 @@ import clsx from "clsx";
 import { FormProvider, useForm } from "react-hook-form";
 import { authApi } from "@/services";
 import { HeaderLayout, Spinner, customToast } from "@/components";
+import { SignupFormType, SignupSchema } from "@/schemas/SignupSchema";
 import PasswordInput from "./PasswordInput";
 import SignupAgreements from "./SignupAgreements";
-import { SignupFormType, SignupSchema } from "./SignupSchema";
 import UsernameInput from "./UsernameInput";
 
 export default function Page() {
