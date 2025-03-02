@@ -1,13 +1,13 @@
 import { useRouter } from "next/navigation";
 import { routePaths } from "@/constants/route";
-import { GetUsersMeResponseBody } from "@/types/api";
+import { GetUserResponseBody } from "@/types/api";
 import { useUserDataStore } from "@/store/userDataStore";
 
 export const useHandleAuth = () => {
   const router = useRouter();
   const { setUserData, clearUserData } = useUserDataStore();
 
-  const handleLogin = (userData: GetUsersMeResponseBody) => {
+  const handleLogin = (userData: GetUserResponseBody) => {
     setUserData(userData);
     router.push(routePaths.root);
   };
