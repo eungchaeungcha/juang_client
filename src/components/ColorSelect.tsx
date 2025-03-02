@@ -1,11 +1,11 @@
 "use client";
 
 import clsx from "clsx";
-import { CharacterColor, CharacterColorEnum } from "@/schemas/CharacterSchema";
+import { CharacterColor, CharacterColorType } from "@/schemas/CharacterSchema";
 
 interface ColorSelectProps {
-  value?: CharacterColorEnum;
-  onChange?: (value: CharacterColorEnum) => void;
+  value?: CharacterColorType;
+  onChange?: (value: CharacterColorType) => void;
 }
 
 export default function ColorSelect({ value, onChange }: ColorSelectProps) {

@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import clsx from "clsx";
 import "swiper/css";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { CharacterName, CharacterNameEnum } from "@/schemas/CharacterSchema";
+import { CharacterName, CharacterNameType } from "@/schemas/CharacterSchema";
 import CustomCharacter from "./CustomCharacter";
 
 interface CharactorSelectProps {
-  value?: CharacterNameEnum;
-  onChange?: (name: CharacterNameEnum) => void;
+  value?: CharacterNameType;
+  onChange?: (name: CharacterNameType) => void;
 }
 
 interface CharactorWrapperProps {
