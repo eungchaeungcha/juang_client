@@ -10,6 +10,8 @@ export const routePaths = {
     onboardingCharacter: "/onboarding/character",
     onboardingNickname: "/onboarding/nickname",
     onboardingFamily: "/onboarding/family",
+    onboardingFamilyCreate: "/onboarding/family/create",
+    onboardingFamilyJoin: "/onboarding/family/join",
   },
   withQueryParams: {
     onboardingCharacterName: () =>
