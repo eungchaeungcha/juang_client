@@ -3,6 +3,7 @@ import { Nanum_Gothic } from "next/font/google";
 import { cookies } from "next/headers";
 import { apiServer } from "@/services/api";
 import TanStackQueryProvider from "@/providers/TanStackQueryProvider";
+import { AnimationContainer } from "@/components";
 import { CustomToastContainer } from "@/components/CustomToast";
 import "@/styles/globals.css";
 
@@ -26,7 +27,10 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`h-svh bg-gray-light ${nanumGothic.className}`}>
         <main className="inset-0 h-full overflow-auto m-auto bg-white sm:aspect-[9/16] text-black-soft min-w-[300px]">
-          <TanStackQueryProvider>{children}</TanStackQueryProvider>
+          <TanStackQueryProvider>
+            <AnimationContainer />
+            {children}
+          </TanStackQueryProvider>
           <CustomToastContainer fontClassName={nanumGothic.className} />
         </main>
       </body>

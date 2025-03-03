@@ -17,7 +17,7 @@ export const usePatchCharacter = () => {
   const router = useRouter();
 
   // 기존 유저 데이터
-  const { userData, setUserData } = useUserData();
+  const { userData, reloadUserData } = useUserData();
   const characterId = userData?.characterId ?? 0;
 
   // 기존 유저 캐릭터의 name, color
@@ -48,8 +48,8 @@ export const usePatchCharacter = () => {
   // 유저 데이터 mutate 함수
   const { mutate: patchCharacter, isPending } = useMutation({
     mutationFn: usersApi.patchUserCharacter,
-    onSuccess: (userData) => {
-      setUserData(userData);
+    onSuccess: async () => {
+      await reloadUserData();
       router.push(routePaths.private.onboardingNickname);
     },
   });

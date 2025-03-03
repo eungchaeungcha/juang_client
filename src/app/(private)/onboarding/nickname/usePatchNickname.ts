@@ -10,14 +10,13 @@ import { routePaths } from "@/constants/route";
 export const usePatchNickname = () => {
   const router = useRouter();
 
-  const { userData, setUserData } = useUserData();
+  const { userData, reloadUserData } = useUserData();
   const userNickName = userData?.nickName?.slice(0, -1) ?? "";
 
   const {
     watch,
     register,
-    formState,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<NicknameFormType>({
     values: { nickName: userNickName },
     resolver: zodResolver(NicknameSchema),
@@ -27,8 +26,8 @@ export const usePatchNickname = () => {
 
   const { mutate: patchNickname, isPending } = useMutation({
     mutationFn: usersApi.patchUserNickname,
-    onSuccess: (userData) => {
-      setUserData(userData);
+    onSuccess: async () => {
+      await reloadUserData();
       router.push(routePaths.private.onboardingFamily);
     },
   });
@@ -43,7 +42,7 @@ export const usePatchNickname = () => {
   return {
     register,
     handleSubmit,
-    isValid: formState.isValid,
+    isValid,
     isPending,
     errors,
   };

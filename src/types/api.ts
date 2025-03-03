@@ -76,3 +76,9 @@ export interface GetCharacterResponseBody {
 export interface PostFamilyRequestBody {
   name: string;
 }
+
+export interface PostFamilyResponseBody {
+  code: string;
+  id: number;
+  name: string;
+}
