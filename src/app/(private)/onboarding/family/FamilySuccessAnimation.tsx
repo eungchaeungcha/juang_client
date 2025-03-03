@@ -28,9 +28,9 @@ export default function FamilySuccessAnimation({
             loop
             animationData={animationData}
             play
-            className="w-1/2"
+            className="w-3/5"
           />
-          <div className="text-2xl text-orange-primary font-bold animate-fadeIn opacity-0">
+          <div className="text-3xl text-orange-primary font-bold animate-fadeIn opacity-0 mb-20">
             감나무를 심었어요!
           </div>
         </div>
