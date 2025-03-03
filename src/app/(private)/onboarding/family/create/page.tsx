@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FixedInput, ShowError, Spinner } from "@/components";
 import { routePaths } from "@/constants/route";
+import FamilySuccessAnimation from "../FamilySuccessAnimation";
 import { usePostFamily } from "./usePostFamily";
 
 export default function Page() {
@@ -10,8 +11,13 @@ export default function Page() {
     register,
     handleSubmit,
     isPending,
+    isSuccess,
     formState: { errors, isValid },
   } = usePostFamily();
+
+  if (isSuccess) {
+    return <FamilySuccessAnimation nextPage={routePaths.private.main} />;
+  }
 
   return (
     <div className="flex flex-col justify-center h-full gap-16 px-8">
