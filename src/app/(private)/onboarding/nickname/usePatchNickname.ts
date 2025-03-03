@@ -16,8 +16,7 @@ export const usePatchNickname = () => {
   const {
     watch,
     register,
-    formState,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<NicknameFormType>({
     values: { nickName: userNickName },
     resolver: zodResolver(NicknameSchema),
@@ -43,7 +42,7 @@ export const usePatchNickname = () => {
   return {
     register,
     handleSubmit,
-    isValid: formState.isValid,
+    isValid,
     isPending,
     errors,
   };
