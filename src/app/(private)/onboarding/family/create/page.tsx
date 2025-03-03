@@ -16,7 +16,7 @@ export default function Page() {
   } = usePostFamily();
 
   if (isSuccess) {
-    return <FamilySuccessAnimation nextPage={routePaths.private.main} />;
+    return <FamilySuccessAnimation nextPage={routePaths.private.tree} />;
   }
 
   return (

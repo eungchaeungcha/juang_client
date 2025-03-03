@@ -5,19 +5,20 @@ export const routePaths = {
     signup: "/signup",
   },
   private: {
-    main: "/main",
     onboarding: "/onboarding",
     onboardingCharacter: "/onboarding/character",
     onboardingNickname: "/onboarding/nickname",
     onboardingFamily: "/onboarding/family",
     onboardingFamilyCreate: "/onboarding/family/create",
     onboardingFamilyJoin: "/onboarding/family/join",
+    tree: "/tree",
   },
   withQueryParams: {
     onboardingCharacterName: () =>
       routePaths.private.onboardingCharacter + "?target=name",
     onboardingCharacterColor: () =>
       routePaths.private.onboardingCharacter + "?target=color",
+    treeWithId: (id: number | string) => routePaths.private.tree + `/${id}`,
   },
 } as const;
 

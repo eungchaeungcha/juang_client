@@ -1,11 +1,18 @@
 import { CustomCharacter, CustomIcon } from "@/components";
 
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
 const mainPageValues = {
   treeName: "화목한 김가네 감나무",
   userName: "둥글둥글 빤딱빤딱감",
 };
 
-export default function Page() {
+export default async function Page({ params }: PageProps) {
+  const { id } = await params;
+  console.log(id);
+
   return (
     <div className="h-full flex flex-col">
       {/* 상단 - 감나무 이름 */}
