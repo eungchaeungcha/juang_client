@@ -10,7 +10,7 @@ import { routePaths } from "@/constants/route";
 export const usePatchNickname = () => {
   const router = useRouter();
 
-  const { userData, setUserData } = useUserData();
+  const { userData, reloadUserData } = useUserData();
   const userNickName = userData?.nickName?.slice(0, -1) ?? "";
 
   const {
@@ -26,8 +26,8 @@ export const usePatchNickname = () => {
 
   const { mutate: patchNickname, isPending } = useMutation({
     mutationFn: usersApi.patchUserNickname,
-    onSuccess: (userData) => {
-      setUserData(userData);
+    onSuccess: async () => {
+      await reloadUserData();
       router.push(routePaths.private.onboardingFamily);
     },
   });
