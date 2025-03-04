@@ -7,7 +7,7 @@ import { useHandleAuth } from "./useHandleAuth";
 import { useUserDataStore } from "@/store/userDataStore";
 
 export const useUserData = () => {
-  const { setUserData, userData } = useUserDataStore();
+  const { setUserData, userData, clearUserData } = useUserDataStore();
 
   const queryClient = useQueryClient();
 
@@ -33,9 +33,10 @@ export const useUserData = () => {
       setUserData(fetchedUserData);
     } else if (isError) {
       customToast.error("사용자 정보를 불러올 수 없습니다.");
+      clearUserData();
       logout();
     }
-  }, [fetchedUserData, isError, logout, setUserData, userData]);
+  }, [clearUserData, fetchedUserData, isError, logout, setUserData]);
 
   return { userData: userData || fetchedUserData, setUserData, reloadUserData };
 };
