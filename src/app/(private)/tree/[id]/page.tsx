@@ -11,14 +11,13 @@ const mainPageValues = {
 
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
-  console.log(id);
 
   return (
     <div className="h-full flex flex-col">
       {/* 상단 - 감나무 이름 */}
       <div className="bg-orange-primary p-4 border-b-4 border-orange-secondray flex-col-center">
         <div className="bg-orange-secondray px-4 py-1 mb-2 text-white w-fit rounded-full">
-          우리집 감나무
+          우리집 감나무 {id}
         </div>
         <div className="text-white font-bold p-1 w-fit text-2xl">
           <div>{mainPageValues.treeName}</div>
@@ -33,6 +32,10 @@ export default async function Page({ params }: PageProps) {
           className="absolute left-0 right-0 bottom-0 m-auto h-[55%]"
           name="gam1"
         />
+        {/* 감 별명 */}
+        <div className="absolute flex-col-center bg-white shadow-md ring-4 ring-orange-primary w-fit left-0 right-0 m-auto h-10 bottom-[-4rem] text-lg px-4 rounded-full font-bold tracking-wide">
+          {mainPageValues.userName}
+        </div>
         {/* 유틸 버튼 */}
         <div className="absolute left-0 right-0 w-[calc(100%-6rem)] p-3 m-auto flex justify-between">
           <CustomIcon
@@ -49,10 +52,6 @@ export default async function Page({ params }: PageProps) {
               icon="Profile"
             />
           </div>
-        </div>
-        {/* 감 별명 */}
-        <div className="absolute flex-col-center bg-white shadow-md ring-4 ring-orange-primary w-fit left-0 right-0 m-auto h-10 bottom-[-4rem] text-lg px-4 rounded-full font-bold tracking-wide">
-          {mainPageValues.userName}
         </div>
       </div>
       {/* 아래 바닥 */}

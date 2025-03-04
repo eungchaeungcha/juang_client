@@ -1,16 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { twMerge } from "tailwind-merge";
 import { charactersApi } from "@/services";
-import { CustomCharacter } from "@/components";
 import { useUserData } from "@/hooks/useUserData";
-import {
-  CharacterColorType,
-  CharacterNameType,
-} from "@/schemas/CharacterSchema";
 import queryKeys from "@/constants/queryKeys";
 
 interface CharacterImageProps {
@@ -27,29 +21,16 @@ export default function CharacterImage({ className }: CharacterImageProps) {
     enabled: Boolean(characterId),
   });
 
-  const [hasImageError, setHasImageError] = useState(false);
-
   // TODO : 캐릭터 이미지 링크 완성되면 수정 필요
   if (character) {
-    if (hasImageError) {
-      return (
-        <CustomCharacter
-          className={className}
-          name={character.name as CharacterNameType}
-          color={character.color as CharacterColorType}
-        />
-      );
-    }
     return (
-      <div className={twMerge("relative", className)}>
+      <div className={twMerge("relative p-2", className)}>
         <Image
-          src={character?.link}
+          // src={character?.link}
+          src={character?.link.replace("/gam1/", `/${character.name}/`)}
           alt="사용자 캐릭터 이미지"
-          onError={() => {
-            setHasImageError(true);
-          }}
-          unoptimized
           fill
+          className="object-contain scale-[80%]"
         />
       </div>
     );
