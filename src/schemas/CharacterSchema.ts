@@ -21,7 +21,7 @@ export const CharacterColor = z.enum([
   "#6d94ed",
   "#ba87ed",
   "#fca2d1",
-  "#b8b3c1",
+  "#b8b3bc",
 ]);
 
 export type CharacterNameType = z.infer<typeof CharacterName>;

@@ -4,7 +4,6 @@ import {
   CharacterColorType,
   CharacterNameType,
 } from "@/schemas/CharacterSchema";
-import { CHARACTER_URL } from "@/constants/character";
 
 interface CustomCharactorProps extends ComponentPropsWithRef<"div"> {
   name?: CharacterNameType;
@@ -24,7 +23,7 @@ export default function CustomCharacter({
       {...props}>
       <svg className="w-full h-full">
         <use
-          xlinkHref={`${CHARACTER_URL}/#${name}`}
+          xlinkHref={`/assets/character_sprite.svg/#${name}`}
           className={clsx(color === undefined && "fill-charactor-orange")}
           style={{
             fill: color,
