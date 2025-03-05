@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
 import { cookies } from "next/headers";
+import { apiServer } from "@/api/instance";
 import TanStackQueryProvider from "@/providers/TanStackQueryProvider";
 import { AnimationContainer } from "@/components";
 import { CustomToastContainer } from "@/components/CustomToast";
-import { apiServer } from "@/api/instance";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {

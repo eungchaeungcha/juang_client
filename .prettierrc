@@ -10,6 +10,7 @@
     "^@/libs(.*)$",
     "^@/api(.*)$",
     "^@/providers(.*)$",
+    "^@/services(.*)$",
     "^@/components(.*)$",
     "^@/hooks(.*)$",
     "^@/utils(.*)$",

@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import { routePaths } from "@/constants/route";
 import { usersApi } from "@/api";
+import { routePaths } from "@/constants/route";
 
 export default async function Page() {
   const { characterId, nickName, familyId } = await usersApi.getUser();

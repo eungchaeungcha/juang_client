@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePostFamily } from "@/services/family";
 import { FixedInput, ShowError, Spinner } from "@/components";
 import { routePaths } from "@/constants/route";
 import FamilySuccessAnimation from "../FamilySuccessAnimation";
-import { usePostFamily } from "./usePostFamily";
 
 export default function Page() {
   const {

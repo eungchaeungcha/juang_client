@@ -2,10 +2,10 @@
 
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { Spinner, customToast } from "@/components";
-import { useHandleAuth } from "@/hooks/useHandleAuth";
-import { PostLoginRequestBody } from "@/types/api";
 import { authApi } from "@/api";
+import { useHandleAuth } from "@/services/auth";
+import { Spinner, customToast } from "@/components";
+import { PostLoginRequestBody } from "@/types/api";
 
 export default function LoginForm() {
   const { register, handleSubmit } = useForm<PostLoginRequestBody>();

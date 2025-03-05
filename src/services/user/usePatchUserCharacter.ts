@@ -3,8 +3,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { charactersApi, usersApi } from "@/api";
-import { useUserCharacter } from "@/hooks/useUserCharacter";
-import { useUserData } from "@/hooks/useUserData";
+import { useUserCharacter } from "@/services/character";
+import { useUserData } from "@/services/user";
 import {
   CharacterColorType,
   CharacterFormType,
@@ -14,7 +14,7 @@ import {
 import queryKeys from "@/constants/queryKeys";
 import { routePaths } from "@/constants/route";
 
-export const usePatchCharacter = () => {
+export const usePatchUserCharacter = () => {
   const router = useRouter();
 
   // 기존 유저 캐릭터 데이터

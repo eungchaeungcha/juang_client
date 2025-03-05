@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { familiesApi } from "@/api";
-import { useUserData } from "@/hooks/useUserData";
+import { useUserData } from "@/services/user";
 import {
   FamilyNameFormType,
   FamilyNameSchema,

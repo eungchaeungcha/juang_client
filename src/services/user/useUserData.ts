@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { authApi, usersApi } from "@/api";
+import { useHandleAuth } from "@/services/auth";
 import { customToast } from "@/components";
 import queryKeys from "@/constants/queryKeys";
-import { useHandleAuth } from "./useHandleAuth";
 import { useUserDataStore } from "@/store/userDataStore";
 
 export const useUserData = () => {

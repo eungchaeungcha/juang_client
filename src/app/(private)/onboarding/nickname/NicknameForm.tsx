@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePatchUserNickname } from "@/services/user";
 import { FixedInput, ShowError, Spinner } from "@/components";
 import { routePaths } from "@/constants/route";
-import { usePatchNickname } from "./usePatchNickname";
 
 export default function NicknameForm() {
   const { register, handleSubmit, isValid, isPending, errors } =
-    usePatchNickname();
+    usePatchUserNickname();
 
   return (
     <>

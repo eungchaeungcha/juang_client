@@ -1,14 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { useUserData } from "@/hooks/useUserData";
+import { usersApi } from "@/api";
+import { useUserData } from "@/services/user";
 import {
   FamilyCodeFormType,
   FamilyCodeSchema,
 } from "@/schemas/FamilyCodeSchema";
-import { usersApi } from "@/api";
 
-export const usePatchFamily = () => {
+export const usePatchUserFamily = () => {
   const { watch, register, formState } = useForm<FamilyCodeFormType>({
     resolver: zodResolver(FamilyCodeSchema),
     mode: "onTouched",

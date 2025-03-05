@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import { useUserCharacter } from "@/hooks/useUserCharacter";
+import { useUserCharacter } from "@/services/character";
 
 interface CharacterImageProps {
   className?: string;

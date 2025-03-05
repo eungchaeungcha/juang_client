@@ -1,8 +1,8 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import { useHandleAuth } from "@/hooks/useHandleAuth";
 import { authApi } from "@/api";
+import { useHandleAuth } from "@/services/auth";
 
 export default function LogoutButton() {
   const { handleLogout } = useHandleAuth();

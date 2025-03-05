@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePatchUserFamily } from "@/services/user";
 import { ShowError, Spinner } from "@/components";
 import { routePaths } from "@/constants/route";
 import FamilySuccessAnimation from "../FamilySuccessAnimation";
-import { usePatchFamily } from "./usePatchFamily";
 
 export default function Page() {
   const {
@@ -13,7 +13,7 @@ export default function Page() {
     isPending,
     isSuccess,
     formState: { errors, isValid },
-  } = usePatchFamily();
+  } = usePatchUserFamily();
 
   if (isSuccess) {
     return <FamilySuccessAnimation nextPage={routePaths.private.tree} />;

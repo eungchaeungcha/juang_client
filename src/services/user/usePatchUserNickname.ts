@@ -2,12 +2,12 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { useUserData } from "@/hooks/useUserData";
+import { usersApi } from "@/api";
+import { useUserData } from "@/services/user";
 import { NicknameFormType, NicknameSchema } from "@/schemas/NicknameSchema";
 import { routePaths } from "@/constants/route";
-import { usersApi } from "@/api";
 
-export const usePatchNickname = () => {
+export const usePatchUserNickname = () => {
   const router = useRouter();
 
   const { userData, reloadUserData } = useUserData();
