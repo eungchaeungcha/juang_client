@@ -4,16 +4,13 @@ import { authApi, usersApi } from "@/api";
 import { useHandleAuth } from "@/services/auth";
 import { customToast } from "@/components";
 import queryKeys from "@/constants/queryKeys";
-import { useUserDataStore } from "@/store/userDataStore";
 
 export const useUserData = () => {
-  const { setUserData, userData, clearUserData } = useUserDataStore();
-
   const queryClient = useQueryClient();
 
-  const { data: fetchedUserData, isError } = useQuery({
+  const { data, isError } = useQuery({
     queryFn: usersApi.getUserClient,
-    queryKey: queryKeys.users.me(userData ? userData.id : 0),
+    queryKey: queryKeys.users.me(0),
     retry: false,
   });
 
@@ -25,18 +22,15 @@ export const useUserData = () => {
 
   const reloadUserData = () =>
     queryClient.invalidateQueries({
-      queryKey: queryKeys.users.me(userData ? userData.id : 0),
+      queryKey: queryKeys.users.me(0),
     });
 
   useEffect(() => {
-    if (fetchedUserData) {
-      setUserData(fetchedUserData);
-    } else if (isError) {
+    if (isError) {
       customToast.error("사용자 정보를 불러올 수 없습니다.");
-      clearUserData();
       logout();
     }
-  }, [clearUserData, fetchedUserData, isError, logout, setUserData]);
+  }, [isError, logout]);
 
-  return { userData: userData || fetchedUserData, setUserData, reloadUserData };
+  return { userData: data, reloadUserData };
 };

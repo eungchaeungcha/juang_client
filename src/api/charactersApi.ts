@@ -1,12 +1,12 @@
 import {
-  GetCharacterByDataRequestParams,
   GetCharacterByIdRequestParams,
+  GetCharacterByValuesRequestParams,
   GetCharacterResponseBody,
 } from "@/types/api";
 import { apiClient, apiServer } from "./instance";
 
 export const charactersApi = {
-  getCharacterByData: ({ name, color }: GetCharacterByDataRequestParams) =>
+  getCharacterByValues: ({ name, color }: GetCharacterByValuesRequestParams) =>
     apiClient.get<GetCharacterResponseBody>(
       `characters?name=${name}&color=${encodeURIComponent(color)}`,
     ),

@@ -3,8 +3,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { authApi } from "@/api";
 import { useHandleAuth } from "@/services/auth";
+import { useUserData } from "@/services/user";
 
 export default function LogoutButton() {
+  const { userData } = useUserData();
+
   const { handleLogout } = useHandleAuth();
   const { mutate: logout } = useMutation({
     mutationFn: authApi.postLogout,
@@ -18,7 +21,7 @@ export default function LogoutButton() {
       onClick={() => {
         logout();
       }}>
-      로그아웃
+      로그아웃 {userData?.username}
     </button>
   );
 }

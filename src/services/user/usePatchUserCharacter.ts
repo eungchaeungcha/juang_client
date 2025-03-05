@@ -1,9 +1,9 @@
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { charactersApi, usersApi } from "@/api";
-import { useUserCharacter } from "@/services/character";
+import { usersApi } from "@/api";
+import { useCharacterData } from "@/services/character";
 import { useUserData } from "@/services/user";
 import {
   CharacterColorType,
@@ -11,15 +11,17 @@ import {
   CharacterNameType,
   CharacterSchema,
 } from "@/schemas/CharacterSchema";
-import queryKeys from "@/constants/queryKeys";
 import { routePaths } from "@/constants/route";
 
 export const usePatchUserCharacter = () => {
   const router = useRouter();
 
   // 기존 유저 캐릭터 데이터
-  const { reloadUserData } = useUserData();
-  const { userCharacter } = useUserCharacter();
+  const { userData, reloadUserData } = useUserData();
+  const characterId = userData?.characterId ?? 0;
+  const { data: userCharacter } = useCharacterData({
+    params: { characterId },
+  });
 
   // 기존의 name, color 가 기본값인 캐릭터 폼
   const formMethods = useForm<CharacterFormType>({
@@ -32,11 +34,9 @@ export const usePatchUserCharacter = () => {
   const { name, color } = formMethods.watch();
 
   // 폼에서 선택한 새로운 캐릭터의 아이디값
-  const { data: newCharacterId } = useQuery({
-    queryFn: () => charactersApi.getCharacterByData({ name, color }),
-    queryKey: queryKeys.characters.byData({ name, color }),
-    select: ({ id }) => id,
-    enabled: Boolean(name && color),
+  const { data: newCharacterId } = useCharacterData({
+    params: { name, color },
+    select: (data) => data.id,
   });
 
   // 유저 데이터 mutate 함수

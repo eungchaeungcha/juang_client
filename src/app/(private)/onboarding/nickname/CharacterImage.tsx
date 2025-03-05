@@ -2,22 +2,25 @@
 
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import { useUserCharacter } from "@/services/character";
+import { useCharacterData } from "@/services/character";
+import { useUserData } from "@/services/user";
 
 interface CharacterImageProps {
   className?: string;
 }
 
 export default function CharacterImage({ className }: CharacterImageProps) {
-  const { userCharacter } = useUserCharacter();
+  const { userData } = useUserData();
+  const characterId = userData?.characterId ?? 0;
+  const { data: userCharacter } = useCharacterData({
+    params: { characterId },
+  });
 
-  // TODO : 캐릭터 이미지 링크 완성되면 수정 필요
   if (userCharacter) {
     return (
       <div className={twMerge("relative p-2", className)}>
         <Image
-          // src={userCharacter?.link}
-          src={userCharacter?.link.replace("/gam1/", `/${userCharacter.name}/`)}
+          src={userCharacter?.link}
           alt="사용자 캐릭터 이미지"
           fill
           priority

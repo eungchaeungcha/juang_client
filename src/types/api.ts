@@ -55,7 +55,7 @@ export interface PatchUserResponseBody {
 
 // Characters Api
 
-export interface GetCharacterByDataRequestParams {
+export interface GetCharacterByValuesRequestParams {
   name: string;
   color: string;
 }
