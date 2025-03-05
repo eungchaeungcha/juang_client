@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { charactersApi, usersApi } from "@/services";
+import { useUserCharacter } from "@/hooks/useUserCharacter";
 import { useUserData } from "@/hooks/useUserData";
 import {
   CharacterColorType,
@@ -16,22 +17,15 @@ import { routePaths } from "@/constants/route";
 export const usePatchCharacter = () => {
   const router = useRouter();
 
-  // 기존 유저 데이터
-  const { userData, reloadUserData } = useUserData();
-  const characterId = userData?.characterId ?? 0;
-
-  // 기존 유저 캐릭터의 name, color
-  const { data: characterData } = useQuery({
-    queryFn: () => charactersApi.getCharacterById({ characterId }),
-    queryKey: queryKeys.characters.byId({ characterId }),
-    enabled: Boolean(characterId),
-  });
+  // 기존 유저 캐릭터 데이터
+  const { reloadUserData } = useUserData();
+  const { userCharacter } = useUserCharacter();
 
   // 기존의 name, color 가 기본값인 캐릭터 폼
   const formMethods = useForm<CharacterFormType>({
     values: {
-      name: characterData?.name as CharacterNameType,
-      color: characterData?.color as CharacterColorType,
+      name: userCharacter?.name as CharacterNameType,
+      color: userCharacter?.color as CharacterColorType,
     },
     resolver: zodResolver(CharacterSchema),
   });
@@ -56,7 +50,7 @@ export const usePatchCharacter = () => {
 
   // 폼 제출 함수
   const handleSubmit = () => {
-    if (name === characterData?.name && color === characterData?.color) {
+    if (name === userCharacter?.name && color === userCharacter?.color) {
       return router.push(routePaths.private.onboardingNickname);
     }
     if (newCharacterId) {
