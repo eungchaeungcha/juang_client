@@ -5,7 +5,7 @@ import {
   PatchUserNickNameRequestBody,
   PatchUserResponseBody,
 } from "@/types/api";
-import { apiClient, apiServer } from "./api";
+import { apiClient, apiServer } from "./instance";
 
 export const usersApi = {
   getUser: () => apiServer.get<GetUserResponseBody>("users/me"),

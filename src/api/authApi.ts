@@ -5,7 +5,7 @@ import {
   PostLoginRequestBody,
   PostRegisterRequestBody,
 } from "@/types/api";
-import { apiClient } from "./api";
+import { apiClient } from "./instance";
 
 export const authApi = {
   postRegister: (data: PostRegisterRequestBody) =>

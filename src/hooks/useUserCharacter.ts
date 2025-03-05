@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { charactersApi } from "@/services";
 import queryKeys from "@/constants/queryKeys";
+import { charactersApi } from "@/api";
 import { useUserCharacterStore } from "@/store/userCharacterStore";
 import { useUserDataStore } from "@/store/userDataStore";
 

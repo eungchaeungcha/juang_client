@@ -1,5 +1,5 @@
 import { PostFamilyRequestBody, PostFamilyResponseBody } from "@/types/api";
-import { apiClient } from "./api";
+import { apiClient } from "./instance";
 
 export const familiesApi = {
   postFamily: (data: PostFamilyRequestBody) =>

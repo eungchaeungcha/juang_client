@@ -5,12 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import clsx from "clsx";
 import { FormProvider, useForm } from "react-hook-form";
-import { authApi } from "@/services";
 import { HeaderLayout, Spinner, customToast } from "@/components";
 import { SignupFormType, SignupSchema } from "@/schemas/SignupSchema";
 import PasswordInput from "./PasswordInput";
 import SignupAgreements from "./SignupAgreements";
 import UsernameInput from "./UsernameInput";
+import { authApi } from "@/api";
 
 export default function Page() {
   const router = useRouter();

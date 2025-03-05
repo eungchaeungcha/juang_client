@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useFormContext, useWatch } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
-import { authApi } from "@/services";
 import { ShowError, Spinner } from "@/components";
 import { SignupFormType } from "@/schemas/SignupSchema";
 import queryKeys from "@/constants/queryKeys";
+import { authApi } from "@/api";
 
 export default function UsernameInput() {
   const {

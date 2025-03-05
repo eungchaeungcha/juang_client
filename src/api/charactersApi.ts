@@ -3,7 +3,7 @@ import {
   GetCharacterByIdRequestParams,
   GetCharacterResponseBody,
 } from "@/types/api";
-import { apiClient, apiServer } from "./api";
+import { apiClient, apiServer } from "./instance";
 
 export const charactersApi = {
   getCharacterByData: ({ name, color }: GetCharacterByDataRequestParams) =>

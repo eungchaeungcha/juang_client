@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { charactersApi, usersApi } from "@/services";
+import { charactersApi, usersApi } from "@/api";
 import { useUserCharacter } from "@/hooks/useUserCharacter";
 import { useUserData } from "@/hooks/useUserData";
 import {
