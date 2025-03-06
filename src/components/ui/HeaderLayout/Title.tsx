@@ -5,20 +5,26 @@ import { FaChevronLeft } from "react-icons/fa";
 
 interface TitleProps {
   title: string;
-  prevButton?: boolean;
+  prev?: boolean | string;
 }
 
-const Title = ({ title, prevButton }: TitleProps) => {
+const Title = ({ title, prev }: TitleProps) => {
   const router = useRouter();
+  const handleClickPrev = () => {
+    if (typeof prev === "string") {
+      router.push(prev);
+    } else {
+      router.back();
+    }
+  };
+
   return (
     <div className="w-full flex-col-center px-4">
       <div className="w-full flex flex-row justify-between items-center">
-        {prevButton && (
+        {prev && (
           <FaChevronLeft
             className="styled-click text-xl text-gray-dark"
-            onClick={() => {
-              router.back();
-            }}
+            onClick={handleClickPrev}
           />
         )}
         <div className="w-full text-center py-4 font-bold text-lg">{title}</div>
