@@ -1,7 +1,7 @@
 "use client";
 
 import { useSelectedLayoutSegment } from "next/navigation";
-import { HeaderLayout } from "@/components";
+import { HeaderLayout } from "@/components/ui";
 
 const pageTitle = {
   character: "감 캐릭터 만들기",

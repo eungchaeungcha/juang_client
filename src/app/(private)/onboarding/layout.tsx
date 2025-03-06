@@ -1,4 +1,4 @@
-import { HeaderLayout } from "@/components";
+import { HeaderLayout } from "@/components/ui";
 import HeaderLayoutData from "./HeaderLayoutData";
 
 export default async function Layout({
