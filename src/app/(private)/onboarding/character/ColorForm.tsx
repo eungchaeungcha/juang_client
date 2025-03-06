@@ -1,5 +1,6 @@
 import { useFormContext, useWatch } from "react-hook-form";
-import { ColorSelect, Spinner } from "@/components";
+import { ColorSelect } from "@/components/form";
+import { Spinner } from "@/components/ui";
 import { CharacterFormType } from "@/schemas/CharacterSchema";
 
 interface ColorFormProps {

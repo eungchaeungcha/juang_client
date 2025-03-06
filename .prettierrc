@@ -11,6 +11,8 @@
     "^@/api(.*)$",
     "^@/providers(.*)$",
     "^@/services(.*)$",
+    "^@/components/form(.*)$",
+    "^@/components/ui(.*)$",
     "^@/components(.*)$",
     "^@/hooks(.*)$",
     "^@/utils(.*)$",

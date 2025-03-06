@@ -1,6 +1,6 @@
 import { useFormContext, useWatch } from "react-hook-form";
 import { FaCheckCircle } from "react-icons/fa";
-import { CheckBox } from "@/components";
+import { CheckBox } from "@/components/form";
 import { SignupFormType } from "@/schemas/SignupSchema";
 
 export default function SignupAgreements() {

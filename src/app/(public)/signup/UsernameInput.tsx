@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useFormContext, useWatch } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
 import { authApi } from "@/api";
-import { ShowError, Spinner } from "@/components";
+import { ShowError, Spinner } from "@/components/ui";
 import { SignupFormType } from "@/schemas/SignupSchema";
 import queryKeys from "@/constants/queryKeys";
 

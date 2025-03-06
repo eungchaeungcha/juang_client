@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePatchUserFamily } from "@/services/user";
-import { ShowError, Spinner } from "@/components";
+import { ShowError, Spinner } from "@/components/ui";
 import { routePaths } from "@/constants/route";
 import FamilySuccessAnimation from "../FamilySuccessAnimation";
 

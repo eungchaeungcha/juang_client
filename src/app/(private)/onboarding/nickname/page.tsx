@@ -1,4 +1,4 @@
-import { BallonBox } from "@/components";
+import { BallonBox } from "@/components/ui";
 import CharacterImage from "./CharacterImage";
 import NicknameForm from "./NicknameForm";
 

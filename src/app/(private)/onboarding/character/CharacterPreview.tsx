@@ -2,7 +2,7 @@
 
 import { useFormContext, useWatch } from "react-hook-form";
 import { FaDice } from "react-icons/fa";
-import { CustomCharacter } from "@/components";
+import { CustomCharacter } from "@/components/ui";
 import { getRandomNumber } from "@/utils/getRandomNumber";
 import {
   CharacterColor,

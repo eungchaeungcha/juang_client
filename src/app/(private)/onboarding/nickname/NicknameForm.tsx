@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePatchUserNickname } from "@/services/user";
-import { FixedInput, ShowError, Spinner } from "@/components";
+import { FixedInput } from "@/components/form";
+import { ShowError, Spinner } from "@/components/ui";
 import { routePaths } from "@/constants/route";
 
 export default function NicknameForm() {

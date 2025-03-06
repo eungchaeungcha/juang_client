@@ -1,4 +1,4 @@
-import { CustomCharacter, CustomIcon } from "@/components";
+import { CustomCharacter, CustomIcon } from "@/components/ui";
 
 interface PageProps {
   params: Promise<{ id: string }>;

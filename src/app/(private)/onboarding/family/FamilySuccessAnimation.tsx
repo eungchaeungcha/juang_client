@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { ShowAnimation } from "@/components";
+import { ShowAnimation } from "@/components/ui";
 import animationData from "./HeartTreeAnimation.json";
 
 interface HeartTreeAnimtaionProps {

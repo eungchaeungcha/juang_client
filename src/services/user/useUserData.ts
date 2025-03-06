@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { authApi, usersApi } from "@/api";
 import { useHandleAuth } from "@/services/auth";
-import { customToast } from "@/components";
+import { customToast } from "@/components/ui";
 import queryKeys from "@/constants/queryKeys";
 
 export const useUserData = () => {

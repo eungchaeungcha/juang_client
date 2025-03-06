@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { ShowError } from "@/components";
+import { ShowError } from "@/components/ui";
 import { SignupFormType } from "@/schemas/SignupSchema";
 
 export default function PasswordInput() {
