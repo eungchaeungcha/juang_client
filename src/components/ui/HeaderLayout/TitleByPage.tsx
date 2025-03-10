@@ -1,6 +1,6 @@
 "use client";
 
-import { useSelectedLayoutSegment } from "next/navigation";
+import { useSelectedLayoutSegments } from "next/navigation";
 import Title from "./Title";
 
 interface TitleMap {
@@ -14,7 +14,8 @@ interface HeaderTitleByPageProps {
 }
 
 const HeaderTitleByPage = ({ titleMap, prev }: HeaderTitleByPageProps) => {
-  const pageName = useSelectedLayoutSegment();
+  const pageNames = useSelectedLayoutSegments();
+  const pageName = pageNames.join("/");
   const title = pageName ? titleMap[pageName] : titleMap.default;
 
   return (

@@ -1,20 +1,27 @@
 "use client";
 
-import { useState } from "react";
-import { UserCharacterImage } from "@/components/ui";
-
-type EditMode = "character" | "nickname" | null;
+import {
+  LogoutButton,
+  UserCharacterImage,
+  UserNickname,
+} from "@/components/ui";
 
 export default function Page() {
-  const [editMode, setEditMode] = useState<EditMode>(null);
-
   return (
     <>
-      <div className="relative w-20 h-20">
-        <UserCharacterImage
-          fill
-          className="object-contain"
-        />
+      <div className="h-full w-full flex-col-center gap-8 p-8">
+        <div className="relative w-48 h-48 rounded-full border-4 border-gray-light">
+          <UserCharacterImage
+            fill
+            className="object-contain scale-[80%]"
+          />
+        </div>
+        <div className="relative text-2xl text-center font-bold border-b-2 border-gray-light w-full py-2">
+          <UserNickname />
+        </div>
+      </div>
+      <div className="w-full p-8">
+        <LogoutButton />
       </div>
     </>
   );

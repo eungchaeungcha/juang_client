@@ -5,6 +5,8 @@ const pageTitle = {
   family: "우리 가족 설정",
   me: "내 정보 설정",
   default: "설정하기",
+  "me/nickname": "별명 수정하기",
+  "me/character": "캐릭터 수정하기",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -14,7 +16,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         titleMap={pageTitle}
         prev
       />
-      <HeaderLayout.Content>{children}</HeaderLayout.Content>
+      <HeaderLayout.Content className="flex-col-center">
+        {children}
+      </HeaderLayout.Content>
     </HeaderLayout.Wrapper>
   );
 }
