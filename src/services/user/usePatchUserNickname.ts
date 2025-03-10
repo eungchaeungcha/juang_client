@@ -5,10 +5,23 @@ import { useForm } from "react-hook-form";
 import { usersApi } from "@/api";
 import { useUserData } from "@/services/user";
 import { NicknameFormType, NicknameSchema } from "@/schemas/NicknameSchema";
-import { routePaths } from "@/constants/route";
 
-export const usePatchUserNickname = () => {
+interface PatchUserNicknameOption {
+  onSuccess?: VoidFunction;
+  onSuccessRoute?: string;
+}
+
+export const usePatchUserNickname = ({
+  onSuccess,
+  onSuccessRoute,
+}: PatchUserNicknameOption = {}) => {
   const router = useRouter();
+  const handleSuccessPatch = () => {
+    onSuccess?.();
+    if (onSuccessRoute) {
+      router.push(onSuccessRoute);
+    }
+  };
 
   const { userData, reloadUserData } = useUserData();
   const userNickName = userData?.nickName?.slice(0, -1) ?? "";
@@ -28,13 +41,14 @@ export const usePatchUserNickname = () => {
     mutationFn: usersApi.patchUserNickname,
     onSuccess: async () => {
       await reloadUserData();
-      router.push(routePaths.private.onboardingFamily);
+      handleSuccessPatch();
     },
   });
 
   const handleSubmit = () => {
     if (nickName === userNickName) {
-      return router.push(routePaths.private.onboardingFamily);
+      handleSuccessPatch();
+      return;
     }
     patchNickname({ nickName: nickName + "감" });
   };

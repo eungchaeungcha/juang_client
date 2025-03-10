@@ -8,7 +8,9 @@ import { routePaths } from "@/constants/route";
 
 export default function NicknameForm() {
   const { register, handleSubmit, isValid, isPending, errors } =
-    usePatchUserNickname();
+    usePatchUserNickname({
+      onSuccessRoute: routePaths.private.onboardingFamily,
+    });
 
   return (
     <>
