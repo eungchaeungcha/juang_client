@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaChevronLeft } from "react-icons/fa";
 
@@ -10,21 +11,18 @@ interface TitleProps {
 
 const Title = ({ title, prev }: TitleProps) => {
   const router = useRouter();
-  const handleClickPrev = () => {
-    if (typeof prev === "string") {
-      router.push(prev);
-    } else {
-      router.back();
-    }
-  };
 
   return (
     <div className="w-full flex-col-center px-4">
       <div className="w-full flex flex-row justify-between items-center">
-        {prev && (
+        {typeof prev === "string" ? (
+          <Link href={prev}>
+            <FaChevronLeft className="styled-click text-xl text-gray-dark" />
+          </Link>
+        ) : (
           <FaChevronLeft
             className="styled-click text-xl text-gray-dark"
-            onClick={handleClickPrev}
+            onClick={() => router.back()}
           />
         )}
         <div className="w-full text-center py-4 font-bold text-lg">{title}</div>

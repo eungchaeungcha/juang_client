@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { CustomCharacter, CustomIcon } from "@/components/ui";
+import { routePaths } from "@/constants/route";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -43,14 +45,18 @@ export default async function Page({ params }: PageProps) {
             icon="Calendar"
           />
           <div className="flex flex-col gap-3">
-            <CustomIcon
-              className="flex-col-center bg-white rounded-full shadow-md styled-click w-14 h-14 p-2"
-              icon="Setting"
-            />
-            <CustomIcon
-              className="flex-col-center bg-white rounded-full shadow-md styled-click w-14 h-14 p-2"
-              icon="Profile"
-            />
+            <Link href={routePaths.private.settingFamiliy}>
+              <CustomIcon
+                className="flex-col-center bg-white rounded-full shadow-md styled-click w-14 h-14 p-2"
+                icon="Setting"
+              />
+            </Link>
+            <Link href={routePaths.private.settingUser}>
+              <CustomIcon
+                className="flex-col-center bg-white rounded-full shadow-md styled-click w-14 h-14 p-2"
+                icon="Profile"
+              />
+            </Link>
           </div>
         </div>
       </div>

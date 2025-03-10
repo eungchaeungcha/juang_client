@@ -1,6 +1,5 @@
 import React from "react";
 import { HeaderLayout } from "@/components/ui";
-import { routePaths } from "@/constants/route";
 
 const pageTitle = {
   family: "우리 가족 설정",
@@ -13,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <HeaderLayout.Wrapper>
       <HeaderLayout.TitleByPage
         titleMap={pageTitle}
-        prev={routePaths.private.tree}
+        prev
       />
       <HeaderLayout.Content>{children}</HeaderLayout.Content>
     </HeaderLayout.Wrapper>

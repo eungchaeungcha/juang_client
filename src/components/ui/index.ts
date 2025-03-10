@@ -7,5 +7,6 @@ export { default as BallonBox } from "./BallonBox";
 export { default as CustomIcon } from "./CustomIcon";
 export { default as ShowError } from "./ShowError";
 export { default as Spinner } from "./Spinner";
+export { default as UserCharacterImage } from "./UserCharacterImage";
 export * from "./CustomToast";
 export * from "./ShowAnimation";
