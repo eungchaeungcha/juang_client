@@ -25,11 +25,11 @@ export default function Accordion({
   return (
     <div className={twMerge("overflow-hidden", className)}>
       <button
-        className="flex gap-2 items-center p-4 styled-click w-full text-left"
+        className="flex gap-2 items-center p-4 styled-click w-full text-left text-gray-dark"
         onClick={onToggle}
         aria-expanded={isOpen}>
         <FaChevronCircleRight
-          className={clsx("duration-200 text-xl", {
+          className={clsx("duration-200 text-xl text-orange-primary", {
             "rotate-90": isOpen,
           })}
         />

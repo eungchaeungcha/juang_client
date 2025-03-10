@@ -11,10 +11,23 @@ import {
   CharacterNameType,
   CharacterSchema,
 } from "@/schemas/CharacterSchema";
-import { routePaths } from "@/constants/route";
 
-export const usePatchUserCharacter = () => {
+interface PatchUserCharacterOption {
+  onSuccess?: VoidFunction;
+  onSuccessRoute?: string;
+}
+
+export const usePatchUserCharacter = ({
+  onSuccess,
+  onSuccessRoute,
+}: PatchUserCharacterOption = {}) => {
   const router = useRouter();
+  const handleSuccessPatch = () => {
+    onSuccess?.();
+    if (onSuccessRoute) {
+      router.push(onSuccessRoute);
+    }
+  };
 
   // 기존 유저 캐릭터 데이터
   const { userData, reloadUserData } = useUserData();
@@ -44,14 +57,15 @@ export const usePatchUserCharacter = () => {
     mutationFn: usersApi.patchUserCharacter,
     onSuccess: async () => {
       await reloadUserData();
-      router.push(routePaths.private.onboardingNickname);
+      handleSuccessPatch();
     },
   });
 
   // 폼 제출 함수
   const handleSubmit = () => {
     if (name === userCharacter?.name && color === userCharacter?.color) {
-      return router.push(routePaths.private.onboardingNickname);
+      handleSuccessPatch();
+      return;
     }
     if (newCharacterId) {
       patchCharacter({ characterId: newCharacterId });
