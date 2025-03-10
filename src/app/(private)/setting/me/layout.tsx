@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           activeClassName="bg-orange-primary text-white"
         />
       </div>
-      <div className="h-full w-full flex-col-center">{children}</div>
+      <div className="grow w-full flex-col-center">{children}</div>
     </>
   );
 }

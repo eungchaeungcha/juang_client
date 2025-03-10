@@ -24,7 +24,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="p-8">
+      <div className="m-8">
         <CustomCharacter
           className="aspect-square p-5 w-48 h-48 rounded-full border-4 border-gray-light"
           name={name}

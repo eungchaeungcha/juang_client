@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         titleMap={pageTitle}
         prev
       />
-      <HeaderLayout.Content className="flex-col-center">
+      <HeaderLayout.Content className="flex flex-col items-center">
         {children}
       </HeaderLayout.Content>
     </HeaderLayout.Wrapper>
