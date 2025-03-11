@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { usersApi } from "@/services";
+import { usersApi } from "@/api";
 import { routePaths } from "@/constants/route";
 
 export default async function Page() {

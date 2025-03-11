@@ -1,6 +1,6 @@
 import {
-  GetCharacterByDataRequestParams,
   GetCharacterByIdRequestParams,
+  GetCharacterByValuesRequestParams,
   GetUsernameDuplicateRequestParams,
 } from "@/types/api";
 
@@ -17,7 +17,7 @@ const users = {
 
 const characters = {
   default: ["characters"] as const,
-  byData: ({ name, color }: GetCharacterByDataRequestParams) =>
+  byValues: ({ name, color }: GetCharacterByValuesRequestParams) =>
     [...characters.default, name, color] as const,
   byId: ({ characterId }: GetCharacterByIdRequestParams) =>
     [...characters.default, characterId] as const,

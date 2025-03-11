@@ -12,6 +12,8 @@ export const routePaths = {
     onboardingFamilyCreate: "/onboarding/family/create",
     onboardingFamilyJoin: "/onboarding/family/join",
     tree: "/tree",
+    settingUser: "/setting/me",
+    settingFamiliy: "/setting/family",
   },
   withQueryParams: {
     onboardingCharacterName: () =>

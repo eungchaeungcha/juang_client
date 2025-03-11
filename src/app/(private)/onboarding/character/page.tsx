@@ -1,14 +1,17 @@
 "use client";
 
 import { FormProvider } from "react-hook-form";
+import { usePatchUserCharacter } from "@/services/user";
+import { routePaths } from "@/constants/route";
 import CharacterForm from "./CharacterForm";
 import CharacterPreview from "./CharacterPreview";
 import ColorForm from "./ColorForm";
 import { useCharacterSearchParams } from "./useCharacterSearchParams";
-import { usePatchCharacter } from "./usePatchCharacter";
 
 export default function Page() {
-  const { formMethods, handleSubmit, isPending } = usePatchCharacter();
+  const { formMethods, handleSubmit, isPending } = usePatchUserCharacter({
+    onSuccessRoute: routePaths.private.onboardingNickname,
+  });
   const { target, setUrlNameParam, setUrlColorParam } =
     useCharacterSearchParams();
 

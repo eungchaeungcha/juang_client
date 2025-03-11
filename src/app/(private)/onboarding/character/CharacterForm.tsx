@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormContext, useWatch } from "react-hook-form";
-import { CharacterSelect } from "@/components";
+import { CharacterSelect } from "@/components/form";
 import { CharacterFormType } from "@/schemas/CharacterSchema";
 
 interface CharacterFormProps {
