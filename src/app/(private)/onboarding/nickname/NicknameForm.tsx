@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePatchUserNickname } from "@/services/user";
-import { FixedInput } from "@/components/form";
+import { AutoFixedInput } from "@/components/form";
 import { ShowError, Spinner } from "@/components/ui";
 import { routePaths } from "@/constants/route";
 
@@ -14,8 +14,8 @@ export default function NicknameForm() {
 
   return (
     <>
-      <div className="px-8 h-20">
-        <FixedInput
+      <div className="px-8 h-20 flex-col-center">
+        <AutoFixedInput
           {...register("nickName")}
           placeholder="둥글둥글 빤딱빤딱한"
           suffix="감"

@@ -21,8 +21,8 @@ export default function AutoWidthInput({
   useImperativeHandle(ref, () => inputElement!);
 
   useEffect(() => {
-    if (inputElement && spanElement) {
-      spanElement.innerText = inputElement.value;
+    if (inputElement?.value && spanElement) {
+      spanElement.innerHTML = inputElement.value;
     }
   }, [inputElement, spanElement]);
 
@@ -35,7 +35,7 @@ export default function AutoWidthInput({
       />
       <div
         ref={setSpanElement}
-        className="whitespace-nowrap invisible h-0">
+        className="whitespace-pre invisible h-0">
         {inputElement?.value || inputElement?.placeholder}
       </div>
     </div>

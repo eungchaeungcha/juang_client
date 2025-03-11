@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePostFamily } from "@/services/family";
-import { FixedInput } from "@/components/form";
+import { AutoFixedInput } from "@/components/form";
 import { ShowError, Spinner } from "@/components/ui";
 import { routePaths } from "@/constants/route";
 import FamilySuccessAnimation from "../FamilySuccessAnimation";
@@ -26,10 +26,10 @@ export default function Page() {
         <div className="text-orange-primary font-bold px-2 mb-2 text-center break-keep">
           우리 가족 감나무만의 이름을 지어주세요
         </div>
-        <div className="h-20">
-          <FixedInput
+        <div className="h-20 flex-col-center">
+          <AutoFixedInput
             {...register("name")}
-            placeholder="화목한 주렁주렁"
+            placeholder="화목한 주렁주렁 "
             suffix="감나무"
           />
           <ShowError
