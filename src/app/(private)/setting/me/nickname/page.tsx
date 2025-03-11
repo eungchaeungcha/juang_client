@@ -1,11 +1,11 @@
 "use client";
 
 import { usePatchUserNickname } from "@/services/user";
-import { FixedInput } from "@/components/form";
+import { AutoFixedInput } from "@/components/form";
 import { ShowError, Spinner, UserCharacterImage } from "@/components/ui";
 
 export default function Page() {
-  const { register, handleSubmit, isValid, isPending, errors } =
+  const { register, handleSubmit, isValid, isPending, errors, userNickName } =
     usePatchUserNickname();
 
   return (
@@ -17,11 +17,12 @@ export default function Page() {
             className="object-contain scale-[80%]"
           />
         </div>
-        <div className="px-8 h-20">
-          <FixedInput
-            suffix="감"
-            autoFocus
+        <div className="px-8 h-20 flex-col-center">
+          <AutoFixedInput
+            placeholder={userNickName}
             {...register("nickName")}
+            autoFocus
+            suffix="감"
           />
           <ShowError
             errors={errors}

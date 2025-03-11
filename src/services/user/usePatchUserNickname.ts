@@ -59,5 +59,6 @@ export const usePatchUserNickname = ({
     isValid,
     isPending,
     errors,
+    userNickName,
   };
 };
