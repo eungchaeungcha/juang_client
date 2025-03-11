@@ -7,7 +7,7 @@ import { ShowError, Spinner } from "@/components/ui";
 import { routePaths } from "@/constants/route";
 
 export default function NicknameForm() {
-  const { register, handleSubmit, isValid, isPending, errors } =
+  const { register, handleSubmit, isValid, isPending, errors, userNickName } =
     usePatchUserNickname({
       onSuccessRoute: routePaths.private.onboardingFamily,
     });
@@ -17,7 +17,8 @@ export default function NicknameForm() {
       <div className="px-8 h-20 flex-col-center">
         <AutoFixedInput
           {...register("nickName")}
-          placeholder="둥글둥글 빤딱빤딱한"
+          placeholder={userNickName ?? "둥글둥글 빤딱빤딱한"}
+          autoFocus
           suffix="감"
         />
         <ShowError
