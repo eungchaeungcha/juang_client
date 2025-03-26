@@ -21,8 +21,10 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: 22
           script: |
+            source ~/.nvm/nvm.sh
             cd ~/juang_client
             git pull origin main
+            nvm use --lts
             npm install
             npm run build
             pm2 restart next-app
