@@ -82,3 +82,22 @@ export interface PostFamilyResponseBody {
   id: number;
   name: string;
 }
+
+// Questions Api
+
+export interface GetQuestionListRequestParams {
+  familyId: number;
+}
+
+export interface GetQuestionDetailRequestParams {
+  familyId: number;
+  questionId: number | "today";
+}
+
+export interface GetQuestionDetailResponseBody {
+  familyQuestionId: number;
+  familyId: number;
+  questionId: number;
+  questionContent: string | null;
+  openedAt: string;
+}

@@ -1,6 +1,8 @@
 import {
   GetCharacterByIdRequestParams,
   GetCharacterByValuesRequestParams,
+  GetQuestionDetailRequestParams,
+  GetQuestionListRequestParams,
   GetUsernameDuplicateRequestParams,
 } from "@/types/api";
 
@@ -23,10 +25,22 @@ const characters = {
     [...characters.default, characterId] as const,
 };
 
+const questions = {
+  default: ["questions"] as const,
+  list: ({ familyId }: GetQuestionListRequestParams) =>
+    [...questions.default, familyId] as const,
+  detail: ({ familyId, questionId }: GetQuestionDetailRequestParams) => [
+    ...questions.default,
+    familyId,
+    questionId,
+  ],
+};
+
 const queryKeys = {
   auth,
   users,
   characters,
+  questions,
 };
 
 export default queryKeys;

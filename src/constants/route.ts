@@ -20,7 +20,6 @@ export const routePaths = {
       routePaths.private.onboardingCharacter + "?target=name",
     onboardingCharacterColor: () =>
       routePaths.private.onboardingCharacter + "?target=color",
-    treeWithId: (id: number | string) => routePaths.private.tree + `/${id}`,
   },
 } as const;
 
