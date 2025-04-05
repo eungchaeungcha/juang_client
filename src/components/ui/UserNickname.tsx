@@ -3,8 +3,16 @@
 import { ComponentProps } from "react";
 import { useUserData } from "@/services/user";
 
-export default function UserNickname(props: ComponentProps<"div">) {
-  const { userData } = useUserData();
+interface UserNicknameProps extends ComponentProps<"div"> {
+  fallbackLength?: number;
+}
 
-  return <div {...props}>{userData?.nickName}</div>;
+export default function UserNickname({
+  fallbackLength = 0,
+  ...props
+}: UserNicknameProps) {
+  const { userData } = useUserData();
+  const { nickName } = userData ?? {};
+
+  return <div {...props}>{nickName ?? "\u00A0 ".repeat(fallbackLength)}</div>;
 }

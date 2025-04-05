@@ -19,6 +19,10 @@
   @apply flex flex-row justify-center items-center;
 }
 
+.absolute-w-center {
+  @apply absolute left-0 right-0 m-auto;
+}
+
 .styled-input {
   @apply outline-none w-full rounded-none border-b-2 border-gray-light placeholder:text-gray-primary p-1 focus:border-orange-primary;
 }
