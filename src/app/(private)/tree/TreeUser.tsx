@@ -2,7 +2,7 @@ import { UserCharacterImage, UserNickname } from "@/components/data";
 
 export default function TreeUser() {
   return (
-    <div className="flex-grow w-full flex flex-col items-center justify-end gap-6 relative p-4">
+    <div className="flex-grow w-full flex flex-col items-center justify-end gap-6 relative">
       <div className="h-full w-[50%] min-w-40 min-h-40 relative">
         <div className="absolute-w-center w-full h-10 bg-gray-dark opacity-20 -bottom-2 rounded-[100%]" />
         <UserCharacterImage

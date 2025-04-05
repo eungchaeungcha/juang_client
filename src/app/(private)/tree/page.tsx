@@ -15,7 +15,7 @@ export default function Page() {
           <TreeUser />
         </div>
       </div>
-      <div className="bg-gray-200 p-4 pb-6">
+      <div className="bg-gray-200 p-4 py-6">
         <TreeQuestion />
       </div>
     </div>
