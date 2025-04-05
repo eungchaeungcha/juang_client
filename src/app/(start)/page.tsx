@@ -6,5 +6,5 @@ export default async function Page() {
   const { familyId } = await usersApi.getUser();
 
   if (!familyId) redirect(routePaths.private.onboarding);
-  redirect(routePaths.withQueryParams.treeWithId(familyId));
+  redirect(routePaths.private.tree);
 }
