@@ -12,9 +12,6 @@ const compat = new FlatCompat({
 const eslintConfig = [
   {
     files: ["**/*.test.js", "**/*.test.ts", "**/*.test.jsx", "**/*.test.tsx"],
-    env: {
-      jest: true, // Jest 환경 설정
-    },
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
