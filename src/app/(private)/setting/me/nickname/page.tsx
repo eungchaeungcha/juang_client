@@ -2,7 +2,8 @@
 
 import { usePatchUserNickname } from "@/services/user";
 import { AutoFixedInput } from "@/components/form";
-import { ShowError, Spinner, UserCharacterImage } from "@/components/ui";
+import { ShowError, Spinner } from "@/components/ui";
+import { UserCharacterImage } from "@/components/data";
 
 export default function Page() {
   const { register, handleSubmit, isValid, isPending, errors, userNickName } =

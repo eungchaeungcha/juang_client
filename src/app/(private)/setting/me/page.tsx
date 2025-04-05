@@ -1,8 +1,5 @@
-import {
-  LogoutButton,
-  UserCharacterImage,
-  UserNickname,
-} from "@/components/ui";
+import { LogoutButton } from "@/components/ui";
+import { UserCharacterImage, UserNickname } from "@/components/data";
 
 export default function Page() {
   return (

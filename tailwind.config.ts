@@ -15,10 +15,12 @@ export default {
       colors: {
         orange: {
           primary: "#ffa047",
-          secondray: "#ff7c3a",
+          secondary: "#ff7c3a",
+          light: "#ffdebf",
         },
         green: {
           primary: "#82bc49",
+          secondary: "#ccf29b",
         },
         gray: {
           light: "#efeef0",

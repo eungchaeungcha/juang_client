@@ -1,4 +1,5 @@
-import { BallonBox, UserCharacterImage } from "@/components/ui";
+import { BallonBox } from "@/components/ui";
+import { UserCharacterImage } from "@/components/data";
 import NicknameForm from "./NicknameForm";
 
 export default async function Page() {
@@ -15,7 +16,7 @@ export default async function Page() {
           dir="up"
           className="text-center w-4/5 rounded-xl bg-gray-light p-4 break-keep">
           나를
-          <span className="text-orange-secondray"> 잘 나타낼 수 있는 별명</span>
+          <span className="text-orange-secondary"> 잘 나타낼 수 있는 별명</span>
           을 지어주세요!
         </BallonBox>
       </div>
