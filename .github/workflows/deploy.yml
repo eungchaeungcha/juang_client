@@ -39,7 +39,7 @@ jobs:
             source ~/.nvm/nvm.sh
             cd ~/juang_client
             nvm use --lts
-            npm run build
+            npm run build:deploy
 
       - name: SSH - Restart app
         uses: appleboy/ssh-action@v1.0.0
