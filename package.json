@@ -10,7 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "build:deploy": "NEXT_DISABLE_LINT=true NEXT_DISABLE_TYPE_CHECKING=true next build"
+    "build:deploy": "next build --no-lint"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
