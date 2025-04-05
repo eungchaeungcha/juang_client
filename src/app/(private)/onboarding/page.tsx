@@ -9,5 +9,5 @@ export default async function Page() {
   if (!nickName) redirect(routePaths.private.onboardingNickname);
   if (!familyId) redirect(routePaths.private.onboardingFamily);
 
-  redirect(routePaths.withQueryParams.treeWithId(familyId));
+  redirect(routePaths.private.tree);
 }
